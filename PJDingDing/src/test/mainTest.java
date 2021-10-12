@@ -90,7 +90,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		
 	}
 	
-	class MainPanel extends JPanel {// 메인 패널  // 버튼위치 모르겠음
+	class MainPanel extends JPanel {// 메인 패널  // 버튼위치 예쁘게하는거 모르겠음
 		
 		public MainPanel() {
 			setLayout(new BorderLayout());
