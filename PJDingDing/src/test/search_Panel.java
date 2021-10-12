@@ -30,7 +30,7 @@ class search_Panel extends JPanel {
 	private Connection connection;
 	private DBM queries;
 	JScrollPane graphScroll;
-	
+
 	public search_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
 		this.mainframe= mainframe; 
 		this.connection = conn;

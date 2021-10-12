@@ -70,7 +70,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		//int d = dbm.lib_ap("60142342", "010000", "3");// 학생번호, 시간(00시,00분,00초), 자리번호
 		//System.out.println(d);// 성공하면 1
 		
-		//dbm.allroom();//강의실 전체출력
+		//sdbm.allroom();//강의실 전체출력
 		//dbm.all_library();// 도서관 전체출력
 		//dbm.allstudent();// 학생정보 전체출력
 		
