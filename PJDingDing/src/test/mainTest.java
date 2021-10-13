@@ -38,7 +38,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\map.png").getImage();
     ImageIcon background1 = new ImageIcon(background);
 	
-	CardLayout cLayout;
+	CardLayout cLayout = new CardLayout();;
 	JButton btnslr, btnlib, btnrest, btnser;
 	
 	public static Connection makeConnection() { //db 커넥션 객체 생성
@@ -79,11 +79,13 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		setTitle("Main");
 		
 		// layout
-		cLayout = new CardLayout();
+		
 		setLayout(cLayout);
 		add(new MainPanel());
-		add(new search_Panel(this, cLayout, connection, dbm));
-		add(new search_Panel(this, cLayout, connection, dbm));
+		add("search",new search_Panel(this, cLayout, connection, dbm));
+		add("cafeteria", new cafeteria_Panel(this, cLayout, connection, dbm));
+		add("classroom", new classroom_Panel(this, cLayout, connection, dbm));
+		add("library", new library_Panel(this, cLayout, connection, dbm));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(520, 420);
@@ -145,10 +147,16 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 			String name = e.getActionCommand();
 			switch(name) {
 				case "조회":
-					cLayout.next(getContentPane()); // 조회 화면으로 넘어감
+					cLayout.show(getContentPane(), "search");
 					break;
 				case "식당":
-					cLayout.next(getContentPane());
+					cLayout.show(getContentPane(), "cafeteria");
+					break;
+				case "강의실":
+					cLayout.show(getContentPane(), "classroom");
+					break;
+				case "도서관":
+					cLayout.show(getContentPane(), "library");
 					break;
 			}
 		}

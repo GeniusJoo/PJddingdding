@@ -24,24 +24,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
 
-
-class search_Panel extends JPanel {
+public class library_Panel extends JPanel{
+	
 	JFrame mainframe;
 	private Connection connection;
 	private DBM queries;
 	JScrollPane graphScroll;
-
-	public search_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
-		
+	
+	public library_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
 		this.mainframe= mainframe; 
 		this.connection = conn;
 		this.queries = queries;
-		
-		JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
-		
-		JButton btnBack = new JButton("back");
-		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
 		
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////
@@ -51,18 +44,34 @@ class search_Panel extends JPanel {
 		menu.getMenu().setMnemonic(KeyEvent.VK_1);
 		menu.addMenuItem("exit", KeyEvent.VK_E, new UserPanelListener());
 		menu.finishAddItem();
-		add(menu, BorderLayout.NORTH);
 		
+		////////////////////////////////////
+		//CENTER
+		
+				
+		
+		/////////////////////////////////////
+		//SOUTH
+		JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
+		
+		JButton btnBack = new JButton("back");
+		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
 		buttonPanel.add(btnBack);
 		southPanel.add(buttonPanel);
-		
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
 	}
 	
 	private class UserPanelListener implements ActionListener { //버튼 리스너
 		public void actionPerformed(ActionEvent e) {
-			
+			String name = e.getActionCommand();
+			switch(name) {
+				case "exit":
+					
+					break;
+			}
 		}
 	}
+
 }

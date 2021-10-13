@@ -35,12 +35,6 @@ public class cafeteria_Panel extends JPanel {
 		this.connection = conn;
 		this.queries = queries;
 		
-		JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-		
-		JButton btnBack = new JButton("back");
-		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
-		
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////
 		// NORTH: menu 메뉴바 테스트 샘플
@@ -50,9 +44,20 @@ public class cafeteria_Panel extends JPanel {
 		menu.addMenuItem("exit", KeyEvent.VK_E, new UserPanelListener());
 		menu.finishAddItem();
 		
+		////////////////////////////////////
+		//CENTER
+		
+				
+		
+		/////////////////////////////////////
+		//SOUTH
+		JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
+		
+		JButton btnBack = new JButton("back");
+		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
 		buttonPanel.add(btnBack);
 		southPanel.add(buttonPanel);
-		
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
 	}
