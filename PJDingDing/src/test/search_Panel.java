@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
-
+// 조회용 패널
 
 class search_Panel extends JPanel {
 	JFrame mainframe;

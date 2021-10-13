@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
-
+// 식당패널
 public class cafeteria_Panel extends JPanel {
 	JFrame mainframe;
 	private Connection connection;

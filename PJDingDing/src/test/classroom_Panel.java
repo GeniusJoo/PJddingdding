@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
-
+//강의실 패널
 public class classroom_Panel extends JPanel{
 	
 	JFrame mainframe;
