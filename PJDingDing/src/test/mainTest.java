@@ -108,7 +108,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 			JPanel btnPanel =  new JPanel();
 			//btnPanel.setLayout(new GridLayout(1, 4));
 			btnPanel.setLayout(new GridBagLayout());
-			GridBagConstraints gbc = new GridBagConstraints();
+			GridBagConstraints gbc = new GridBagConstraints(); 
 			//gbc.fill=GridBagConstraints.BOTH;
 						
 			btnslr = new JButton("강의실");
