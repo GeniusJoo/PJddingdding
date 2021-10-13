@@ -1,4 +1,4 @@
-#mysql로 씀, 오라클도 가능함
+#mysql로 씀, 오라클도 가능함.
 # 테이블 드랍(처음 생성이면 제거하고 실행)
 drop Table school_information.library;
 drop Table school_information.classroom;
