@@ -79,7 +79,6 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		setTitle("Main");
 		
 		// layout
-		
 		setLayout(cLayout);
 		add(new MainPanel());
 		add("search",new search_Panel(this, cLayout, connection, dbm));
