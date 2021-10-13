@@ -24,14 +24,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
 
-
-class search_Panel extends JPanel {
+public class cafeteria_Panel extends JPanel {
 	JFrame mainframe;
 	private Connection connection;
 	private DBM queries;
 	JScrollPane graphScroll;
 
-	public search_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
+	public cafeteria_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
 		this.mainframe= mainframe; 
 		this.connection = conn;
 		this.queries = queries;
@@ -50,7 +49,6 @@ class search_Panel extends JPanel {
 		menu.getMenu().setMnemonic(KeyEvent.VK_1);
 		menu.addMenuItem("exit", KeyEvent.VK_E, new UserPanelListener());
 		menu.finishAddItem();
-		add(menu, BorderLayout.NORTH);
 		
 		buttonPanel.add(btnBack);
 		southPanel.add(buttonPanel);
@@ -59,9 +57,15 @@ class search_Panel extends JPanel {
 		add(southPanel, BorderLayout.SOUTH);
 	}
 	
+
 	private class UserPanelListener implements ActionListener { //버튼 리스너
 		public void actionPerformed(ActionEvent e) {
-			
+			String name = e.getActionCommand();
+			switch(name) {
+				case "exit":
+					
+					break;
+			}
 		}
 	}
 }

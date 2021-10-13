@@ -35,6 +35,9 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 	private Connection connection;
 	private DBM dbm;
 	
+	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\map.png").getImage();
+    ImageIcon background1 = new ImageIcon(background);
+	
 	CardLayout cLayout;
 	JButton btnslr, btnlib, btnrest, btnser;
 	
@@ -49,12 +52,10 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		return conn;
 	}
 	
-	private Image background=new ImageIcon(mainTest.class.getResource("../image/map.png")).getImage(); // 그림 가져오기
-	
 	public mainTest() {// 테스트용 생성자
 		connection = makeConnection(); //커넥션 생성
 		dbm=new DBM(connection);//db 커넥션 객체 전달, 모든 쿼리문은 DBM에서 작동하게 함
-		
+				
 		// db 활용 예시 주석 지워가며 하면됨
 		//dbm.sl_search("5700"); //강의실 서치하여 출력 입력내용 : 강의실번호 // 서치 내용 바꿀수있음
 		//int a = dbm.sl_ap("60000005", "5700");// 강의실 예약자 등록 입력내용 : 학생번호, 강의실번호
@@ -82,6 +83,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		setLayout(cLayout);
 		add(new MainPanel());
 		add(new search_Panel(this, cLayout, connection, dbm));
+		add(new search_Panel(this, cLayout, connection, dbm));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(520, 420);
@@ -100,15 +102,19 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 			JPanel centerPanel = new JPanel();
 			centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 			
+			JLabel picLabel = new JLabel(background1);
+			picLabel.setAlignmentX(picLabel.LEFT_ALIGNMENT);
+			centerPanel.add(picLabel, centerPanel);
+			
 			add(centerPanel, BorderLayout.CENTER);
 			//
 			
 			//아래 버튼
 			//JPanel southPanel = new JPanel(new GridLayout(1, 4));
 			JPanel btnPanel =  new JPanel();
-			//btnPanel.setLayout(new GridLayout(1, 4));
-			btnPanel.setLayout(new GridBagLayout());
-			GridBagConstraints gbc = new GridBagConstraints(); 
+			btnPanel.setLayout(new GridLayout(1, 4));
+			//btnPanel.setLayout(new GridBagLayout());
+			//GridBagConstraints gbc = new GridBagConstraints(); 
 			//gbc.fill=GridBagConstraints.BOTH;
 						
 			btnslr = new JButton("강의실");
@@ -132,10 +138,6 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		}
 	}
 	
-
-	public void paint(Graphics g) {//이미지 그리기
-		g.drawImage(background, 0, 0, null);//background를 그려줌
-		}
 	
 	private class MainPanelListener implements ActionListener { // 버튼 리스너
 		@Override
@@ -144,6 +146,9 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 			switch(name) {
 				case "조회":
 					cLayout.next(getContentPane()); // 조회 화면으로 넘어감
+					break;
+				case "식당":
+					cLayout.next(getContentPane());
 					break;
 			}
 		}
