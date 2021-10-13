@@ -1,5 +1,5 @@
 package test;
-
+//테스트용
 import java.awt.event.ActionListener;
 
 import javax.swing.JMenu;
