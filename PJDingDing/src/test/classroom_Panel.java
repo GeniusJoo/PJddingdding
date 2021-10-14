@@ -55,7 +55,7 @@ public class classroom_Panel extends JPanel{
 		JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
 		
-		JButton btnBack = new JButton("back");
+		JButton btnBack = new JButton("뒤로가기");
 		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
 		buttonPanel.add(btnBack);
 		southPanel.add(buttonPanel);

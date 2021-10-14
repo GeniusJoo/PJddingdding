@@ -1,6 +1,7 @@
 package test;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DBM {
@@ -9,6 +10,7 @@ public class DBM {
 	private PreparedStatement student_in=null;
 	private PreparedStatement student_out=null;
 	private PreparedStatement library_search=null;
+	private PreparedStatement library_se=null;
 	private PreparedStatement library_user=null;
 	private Statement state =null;
 
@@ -19,6 +21,7 @@ public class DBM {
 			student_in=connection.prepareStatement("INSERT INTO school_information.student(student_name, student_id, student_password)  VALUES(?, ?, ?);"); // 학생정보등록쿼리문
 			student_out=connection.prepareStatement("SELECT student_password FROM school_information.student WHERE student_id=?;"); // 학생정보 확인 쿼리문
 			library_search=connection.prepareStatement("SELECT library_id, library_user, Reservation_time FROM school_information.library WHERE library_id = ?;"); // 도서실자리 확인 쿼리문
+			library_se=connection.prepareStatement("SELECT library_user FROM school_information.library;"); // 도서실사람 있는지 쿼리문
 			library_user=connection.prepareStatement("UPDATE school_information.library SET library_user = ? , Reservation_time = ? WHERE library_id = ?;"); // 도서실 자리 예약자 변경 쿼리문
 			state=connection.createStatement();
 		} catch (SQLException sqlException) {
@@ -101,6 +104,10 @@ public class DBM {
 		} catch(SQLException sqlException) {
 			sqlException.getStackTrace();
 		} 
+	}
+	
+	public void lib_se() {// 도서실사람 있는지
+		
 	}
 	
 	public int lib_ap(String a, String b, String c) { // 교실 예약자 변경 

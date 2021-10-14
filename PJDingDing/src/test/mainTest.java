@@ -76,7 +76,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		//dbm.allstudent();// 학생정보 전체출력
 		
 		//프레임 생성
-		setTitle("Main");
+		setTitle("요정띵띵이");
 		
 		// layout
 		setLayout(cLayout);
