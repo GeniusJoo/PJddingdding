@@ -47,7 +47,7 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 			conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 		} catch(SQLException sqlException) {
 			sqlException.getStackTrace();
-			System.exit(1);
+			//System.exit(1);
 		}
 		return conn;
 	}

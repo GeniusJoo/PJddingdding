@@ -25,6 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
+
 // 식당패널
 public class cafeteria_Panel extends JPanel {
 	JFrame mainframe;
@@ -50,8 +51,13 @@ public class cafeteria_Panel extends JPanel {
 		Menu menu = new Menu();
 		menu.addMenu("User");
 		menu.getMenu().setMnemonic(KeyEvent.VK_1);
-		menu.addMenuItem("exit", KeyEvent.VK_E, new UserPanelListener());
+		menu.addMenuItem("나가기", KeyEvent.VK_E, new UserPanelListener());
+		menu.addMenuItem("강의실", KeyEvent.VK_E, new UserPanelListener());
+		menu.addMenuItem("도서실", KeyEvent.VK_E, new UserPanelListener());
+		menu.addMenuItem("식당", KeyEvent.VK_E, new UserPanelListener());
+		menu.addMenuItem("조회", KeyEvent.VK_E, new UserPanelListener());
 		menu.finishAddItem();
+		add(menu, BorderLayout.NORTH);
 		
 		////////////////////////////////////
 		//CENTER

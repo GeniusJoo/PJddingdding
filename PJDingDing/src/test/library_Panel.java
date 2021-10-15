@@ -48,8 +48,13 @@ public class library_Panel extends JPanel{
 		Menu menu = new Menu();
 		menu.addMenu("User");
 		menu.getMenu().setMnemonic(KeyEvent.VK_1);
-		menu.addMenuItem("exit", KeyEvent.VK_E, new librayPanelListener());
+		menu.addMenuItem("나가기", KeyEvent.VK_E, new librayPanelListener());
+		menu.addMenuItem("강의실", KeyEvent.VK_E, new librayPanelListener());
+		menu.addMenuItem("도서실", KeyEvent.VK_E, new librayPanelListener());
+		menu.addMenuItem("식당", KeyEvent.VK_E, new librayPanelListener());
+		menu.addMenuItem("조회", KeyEvent.VK_E, new librayPanelListener());
 		menu.finishAddItem();
+		add(menu, BorderLayout.NORTH);
 		
 		////////////////////////////////////
 		//CENTER
@@ -102,7 +107,8 @@ public class library_Panel extends JPanel{
 			String name = e.getActionCommand();
 			int i=0;
 			switch(name) {
-				case "exit":
+				case "나가기":
+					
 					break;
 				case"새로고침":
 					for(int j= 0; j<30;j++) {
