@@ -87,7 +87,8 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		add("library", new library_Panel(this, cLayout, connection, dbm));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(520, 420);
+		setSize(520, 400);
+		
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
@@ -97,11 +98,13 @@ public class mainTest extends JFrame{// mysql 연결하기 위한 클래스
 		
 		public MainPanel() {
 			setLayout(new BorderLayout());
-			setResizable(false);
+			//setResizable(false);
 			
 			//가운데(center)
 			JPanel centerPanel = new JPanel();
 			centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+		
+
 			
 			JLabel picLabel = new JLabel(background1);
 			picLabel.setAlignmentX(picLabel.LEFT_ALIGNMENT);

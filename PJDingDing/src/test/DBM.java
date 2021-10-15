@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class DBM {
 	private PreparedStatement classroom_search =null;
 	private PreparedStatement cl_appointment =null;
@@ -21,7 +22,7 @@ public class DBM {
 			student_in=connection.prepareStatement("INSERT INTO school_information.student(student_name, student_id, student_password)  VALUES(?, ?, ?);"); // 학생정보등록쿼리문
 			student_out=connection.prepareStatement("SELECT student_password FROM school_information.student WHERE student_id=?;"); // 학생정보 확인 쿼리문
 			library_search=connection.prepareStatement("SELECT library_id, library_user, Reservation_time FROM school_information.library WHERE library_id = ?;"); // 도서실자리 확인 쿼리문
-			library_se=connection.prepareStatement("SELECT library_user FROM school_information.library;"); // 도서실사람 있는지 쿼리문
+			library_se=connection.prepareStatement("SELECT library_user FROM school_information.library WHERE library_id = ?;"); // 도서실사람 있는지 쿼리문
 			library_user=connection.prepareStatement("UPDATE school_information.library SET library_user = ? , Reservation_time = ? WHERE library_id = ?;"); // 도서실 자리 예약자 변경 쿼리문
 			state=connection.createStatement();
 		} catch (SQLException sqlException) {
@@ -106,8 +107,17 @@ public class DBM {
 		} 
 	}
 	
-	public void lib_se() {// 도서실사람 있는지
-		
+	public int lib_se(int s) {// 도서실사람 있는지
+		int num=0;
+		try {
+			library_se.setInt(1, s);
+			ResultSet resultSet = library_se.executeQuery();
+			resultSet.next();
+			num=resultSet.getInt(1);
+		} catch(SQLException sqlException) {
+			sqlException.getStackTrace();
+		}
+		return num;
 	}
 	
 	public int lib_ap(String a, String b, String c) { // 교실 예약자 변경 

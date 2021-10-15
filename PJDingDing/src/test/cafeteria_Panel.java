@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -29,6 +31,13 @@ public class cafeteria_Panel extends JPanel {
 	private Connection connection;
 	private DBM queries;
 	JScrollPane graphScroll;
+	
+	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\rest.jpg").getImage();
+    ImageIcon background1 = new ImageIcon(background);
+    Image originImg = background1.getImage(); 
+    Image changedImg= originImg.getScaledInstance(500, 300, Image.SCALE_SMOOTH );
+    ImageIcon Icon = new ImageIcon(changedImg);
+
 
 	public cafeteria_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
 		this.mainframe= mainframe; 
@@ -46,8 +55,13 @@ public class cafeteria_Panel extends JPanel {
 		
 		////////////////////////////////////
 		//CENTER
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+		JLabel picLabel = new JLabel(Icon);
+		picLabel.setAlignmentX(picLabel.LEFT_ALIGNMENT);
+		centerPanel.add(picLabel, centerPanel);
 		
-				
+		add(centerPanel, BorderLayout.CENTER);
 		
 		/////////////////////////////////////
 		//SOUTH

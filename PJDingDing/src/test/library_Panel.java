@@ -35,6 +35,7 @@ public class library_Panel extends JPanel{
 	
 	JButton[] libBk = new JButton[30];//도서관버튼
 	JLabel[] label = new JLabel[30];// 도서관라벨
+	int[] labelnum=new int[30]; // 예약자 현황 저장
 	
 	public library_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
 		this.mainframe= mainframe; 
@@ -55,19 +56,28 @@ public class library_Panel extends JPanel{
 		
 		JPanel centerPanel = new JPanel(new GridLayout(10,6));//5x5
 		
-		List<String> labelnum;
-
+		
+				
+		for(int i= 0; i<30;i++) {//예약자 정보 등록
+			labelnum[i]=queries.lib_se(i+1);
+		}
+	
 		int k=1;
-		for(int i=0;i<30;i++) {
+		for(int i=0;i<30;i++) { // 버튼과 예약 라벨 만들기
 			libBk[i]=new JButton(""+k);
 			libBk[i].addActionListener(new librayPanelListener());
 			centerPanel.add(libBk[i]);
 			label[i]=new JLabel();
 			centerPanel.add(label[i]);
 			k++;
+			if(labelnum[i]==0) {
+				label[i].setText("예약안됨");
+			}else {
+				label[i].setText("예약됨");
+			}
 		}
-		k=29;
-
+		
+	
 		add(centerPanel,BorderLayout.CENTER);
 		
 		/////////////////////////////////////
@@ -76,8 +86,11 @@ public class library_Panel extends JPanel{
 		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
 		
 		JButton btnBack = new JButton("뒤로가기");
+		JButton btnRe = new JButton("새로고침");
 		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
+		btnRe.addActionListener(new librayPanelListener());
 		buttonPanel.add(btnBack);
+		buttonPanel.add(btnRe);
 		southPanel.add(buttonPanel);
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
@@ -87,16 +100,31 @@ public class library_Panel extends JPanel{
 
 		public void actionPerformed(ActionEvent e) {
 			String name = e.getActionCommand();
-			int i =Integer.parseInt(name);
+			int i=0;
 			switch(name) {
 				case "exit":
 					break;
+				case"새로고침":
+					for(int j= 0; j<30;j++) {
+						labelnum=null;
+						labelnum=new int[30];
+						labelnum[j]=queries.lib_se(j+1);
+						if(labelnum[j]==0) {
+							label[j].setText("예약안됨");
+						}else {
+							label[j].setText("예약됨");
+						}
+					}
+					break;
+				default:
+					i=Integer.parseInt(name);
+					if(i<31) {
+						int b=0;
+						loginPanel a = new loginPanel(connection, queries, name);
+					}
+					break;
+					
 			}
-			if(i<26) {
-				int b=0;
-				loginPanel a = new loginPanel(connection, queries, name);
-			}
-
 		}
 	}
 
