@@ -37,10 +37,8 @@ public class library_Panel extends JPanel{
 	JLabel[] label = new JLabel[30];// 도서관라벨
 	int[] labelnum=new int[30]; // 예약자 현황 저장
 	
-	public library_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
+	public library_Panel(JFrame mainframe, CardLayout cLayout) {
 		this.mainframe= mainframe; 
-		this.connection = conn;
-		this.queries = queries;
 				
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////
@@ -60,12 +58,6 @@ public class library_Panel extends JPanel{
 		//CENTER
 		
 		JPanel centerPanel = new JPanel(new GridLayout(10,6));//5x5
-		
-		
-				
-		for(int i= 0; i<30;i++) {//예약자 정보 등록
-			labelnum[i]=queries.lib_se(i+1);
-		}
 	
 		int k=1;
 		for(int i=0;i<30;i++) { // 버튼과 예약 라벨 만들기
@@ -126,7 +118,7 @@ public class library_Panel extends JPanel{
 					i=Integer.parseInt(name);
 					if(i<31) {
 						int b=0;
-						loginPanel a = new loginPanel(connection, queries, name);
+						loginPanel a = new loginPanel(name);
 					}
 					break;
 					

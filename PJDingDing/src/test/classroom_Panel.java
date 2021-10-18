@@ -32,11 +32,8 @@ public class classroom_Panel extends JPanel{
 	private DBM queries;
 	JScrollPane graphScroll;
 
-	public classroom_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
-		this.mainframe= mainframe; 
-		this.connection = conn;
-		this.queries = queries;
-		
+	public classroom_Panel(JFrame mainframe, CardLayout cLayout) {
+		this.mainframe= mainframe; 		
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////
 		// NORTH: menu 메뉴바 테스트 샘플

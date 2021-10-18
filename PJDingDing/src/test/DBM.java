@@ -27,7 +27,7 @@ public class DBM {
 			state=connection.createStatement();
 		} catch (SQLException sqlException) {
 			sqlException.getStackTrace();
-			System.exit(1);
+			//System.exit(1);
 		}
 	}
 	

@@ -29,8 +29,6 @@ import javax.swing.SpringLayout;
 // 식당패널
 public class cafeteria_Panel extends JPanel {
 	JFrame mainframe;
-	private Connection connection;
-	private DBM queries;
 	JScrollPane graphScroll;
 	
 	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\rest.jpg").getImage();
@@ -40,10 +38,8 @@ public class cafeteria_Panel extends JPanel {
     ImageIcon Icon = new ImageIcon(changedImg);
 
 
-	public cafeteria_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
+	public cafeteria_Panel(JFrame mainframe, CardLayout cLayout) {
 		this.mainframe= mainframe; 
-		this.connection = conn;
-		this.queries = queries;
 		
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////

@@ -21,9 +21,8 @@ public class loginPanel extends JFrame {// 로그인 패널
 	private int a=0;
 	private String c="";
 	
-	public loginPanel(Connection conn, DBM queries, String name) {
-		this.queries = queries; 
-		this.connection = conn;
+	public loginPanel(String name) {
+
 		Font f1 = new Font("바탕",Font.PLAIN,15);
 		
 		JLabel lb1 = new JLabel("시간(시분):");            

@@ -31,11 +31,9 @@ class search_Panel extends JPanel {
 	private DBM queries;
 	JScrollPane graphScroll;
 
-	public search_Panel(JFrame mainframe, CardLayout cLayout, Connection conn, DBM queries) {
+	public search_Panel(JFrame mainframe, CardLayout cLayout) {
 		
 		this.mainframe= mainframe; 
-		this.connection = conn;
-		this.queries = queries;
 		
 		JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
