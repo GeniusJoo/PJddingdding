@@ -37,6 +37,12 @@ public class mainTest extends JFrame{
 	
 	public mainTest() {// 테스트용 생성자
 		
+		//배열생성
+		//강의실 배열은 건물 수대로 건물은 3~4개, 학교->건물->층수->강의실->강의실정보 순으로 트리 제작
+		//학생정보는 학생이름, 번호, 비밀번호로 10명정도
+		//도서관정보는 자리, 예약자, 남은시간 으로 20자리 정도
+		//편의시설 정보 추가 시간 남을 경우
+		
 		//프레임 생성
 		setTitle("요정띵띵이");
 		
@@ -65,8 +71,6 @@ public class mainTest extends JFrame{
 			//가운데(center)
 			JPanel centerPanel = new JPanel();
 			centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-		
-
 			
 			JLabel picLabel = new JLabel(background1);
 			picLabel.setAlignmentX(picLabel.LEFT_ALIGNMENT);
@@ -76,12 +80,8 @@ public class mainTest extends JFrame{
 			//
 			
 			//아래 버튼
-			//JPanel southPanel = new JPanel(new GridLayout(1, 4));
 			JPanel btnPanel =  new JPanel();
 			btnPanel.setLayout(new GridLayout(1, 4));
-			//btnPanel.setLayout(new GridBagLayout());
-			//GridBagConstraints gbc = new GridBagConstraints(); 
-			//gbc.fill=GridBagConstraints.BOTH;
 						
 			btnslr = new JButton("강의실");
 			btnlib = new JButton("도서관");
@@ -126,7 +126,6 @@ public class mainTest extends JFrame{
 		}
 	}
 		
-	
 	public static void main(String[] args) {
 		new mainTest(); 
 	}

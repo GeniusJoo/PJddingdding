@@ -16,8 +16,6 @@ import java.sql.Connection;
 import javax.swing.JButton;
 
 public class loginPanel extends JFrame {// 로그인 패널
-	private Connection connection;
-	private DBM queries;
 	private int a=0;
 	private String c="";
 	
@@ -57,14 +55,12 @@ public class loginPanel extends JFrame {// 로그인 패널
 		
 		bt1.addActionListener(new ActionListener() {  
 			public void actionPerformed(ActionEvent e) {       
-				DBM d = new DBM(connection);
-				int i = d.login(tf1.getText(), new String(pw1.getPassword()));
+				int i =0;
 				if(i==1) {
 					JOptionPane.showMessageDialog(null, "로그인성공");
 					dispose();
 					a=1;
 					c=tf2.getText();
-					queries.lib_ap(tf1.getText(),tf2.getText(),name);
 				}else {
 					JOptionPane.showMessageDialog(null, "로그인실패");
 				}
@@ -80,15 +76,6 @@ public class loginPanel extends JFrame {// 로그인 패널
 		setLayout(null);
 		setVisible(true);
 	
-	}
-	
-	public int re() {
-		int b=a;
-		return b;
-	}
-	
-	public String time() {
-		return c;
 	}
 
 }

@@ -103,16 +103,7 @@ public class library_Panel extends JPanel{
 					
 					break;
 				case"새로고침":
-					for(int j= 0; j<30;j++) {
-						labelnum=null;
-						labelnum=new int[30];
-						labelnum[j]=queries.lib_se(j+1);
-						if(labelnum[j]==0) {
-							label[j].setText("예약안됨");
-						}else {
-							label[j].setText("예약됨");
-						}
-					}
+					
 					break;
 				default:
 					i=Integer.parseInt(name);
