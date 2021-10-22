@@ -28,8 +28,6 @@ import javax.swing.SpringLayout;
 public class classroom_Panel extends JPanel{
 	
 	JFrame mainframe;
-	private Connection connection;
-	private DBM queries;
 	JScrollPane graphScroll;
 
 	public classroom_Panel(JFrame mainframe, CardLayout cLayout) {

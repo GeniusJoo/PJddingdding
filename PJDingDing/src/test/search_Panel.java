@@ -27,8 +27,6 @@ import javax.swing.SpringLayout;
 
 class search_Panel extends JPanel {
 	JFrame mainframe;
-	private Connection connection;
-	private DBM queries;
 	JScrollPane graphScroll;
 
 	public search_Panel(JFrame mainframe, CardLayout cLayout) {
