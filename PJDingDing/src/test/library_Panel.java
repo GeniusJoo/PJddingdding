@@ -2,6 +2,7 @@ package test;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Choice;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -28,6 +29,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import test.information.lib;
+import test.information.stu;
 
 //도서관 패널
 public class library_Panel extends JPanel{
@@ -38,9 +41,11 @@ public class library_Panel extends JPanel{
 	JButton[] libBk = new JButton[30];//도서관버튼
 	JLabel[] label1 = new JLabel[25];// 도서관라벨
 	JLabel[] label2 = new JLabel[25];// 상태라벨
-	ArrayList<li>[] te = new ArrayList[25]; // 좌석정보 리스트
-	loginPanel1 a;
-	int b=0;
+	information info = new information(); // 정보 받아오기
+	ArrayList<lib>[] lt = info.library_info(); // 좌석정보 리스트
+	ArrayList<stu>[] st = info.student_info(); // 학생정보
+	loginPanel1 login; // 로그인 패널
+	int man; // 예약자 임시저장
 	
 	public library_Panel(JFrame mainframe, CardLayout cLayout) {
 		this.mainframe= mainframe; 
@@ -53,7 +58,6 @@ public class library_Panel extends JPanel{
 		menu.getMenu().setMnemonic(KeyEvent.VK_1);
 		menu.addMenuItem("나가기", KeyEvent.VK_E, new librayPanelListener());
 		menu.addMenuItem("강의실", KeyEvent.VK_E, new librayPanelListener());
-		menu.addMenuItem("도서실", KeyEvent.VK_E, new librayPanelListener());
 		menu.addMenuItem("식당", KeyEvent.VK_E, new librayPanelListener());
 		menu.addMenuItem("조회", KeyEvent.VK_E, new librayPanelListener());
 		menu.finishAddItem();
@@ -61,20 +65,13 @@ public class library_Panel extends JPanel{
 		
 		////////////////////////////////////
 		//CENTER
-		
-		JPanel centerPanel = new JPanel(new GridLayout(10,5));//5x5
+		JPanel centerPanel = new JPanel(new GridLayout(10,5));//10x5
 		
 		int i = 0;
 		int k = 0;
 		int o = 0;
 		
-		for(int j=0;j<25;j++) {
-			li s = new li(j);
-			te[j] = new ArrayList<li>();
-			te[j].add(s);
-		}
-		
-		while(i<25||k<25) {
+		while(i<25||k<25) {//번갈아가면서 라벨 작성
 			if(o==0) {
 				for(int j=0;j<5;j++) {
 					label1[i]=new JLabel();
@@ -95,8 +92,8 @@ public class library_Panel extends JPanel{
 		i = 0;
 		k = 0;
 		
-		while(i<=24) {
-			label1[i].setText(te[i].get(0).number+"번 좌석");
+		while(i<=24) { // 라벨 붙이기 
+			label1[i].setText(lt[i].get(0).number+"번 좌석");
 			label2[i].setText("***");
 			i++;
 		}
@@ -121,31 +118,24 @@ public class library_Panel extends JPanel{
 		add(southPanel, BorderLayout.SOUTH);
 	}
 	
-	class li{
-		int number; // 좌석번호
-		int name; // 좌석 예약자
-		int time; //좌석시간
-		int orr; //좌석 예약 완료 
-		public li() {}
-		public li(int a) {
-			number = a+1;
-			name = 0;
-			time = 0;
-			orr =0;
-		}
-	}
 	
 	private class librayPanelListener implements ActionListener { //버튼 리스너
-
+		
 		public void actionPerformed(ActionEvent e) {
 			
 			String name = e.getActionCommand();
 			switch(name) {
-				case "나가기":
-	
-					break;
 				case"예약하기":
-					a = new loginPanel1();
+					login = new loginPanel1();
+				case"나가기":
+					
+					break;
+				case"강의실":
+					break;
+				case"식당":
+					break;
+				case"조회":
+					break;
 				default:
 					break;
 					
@@ -154,7 +144,7 @@ public class library_Panel extends JPanel{
 	}
 
 	public class loginPanel1 extends JFrame {// 로그인 패널
-		public int a=0;
+
 		public loginPanel1() {
 
 			Font f1 = new Font("바탕",Font.PLAIN,15);
@@ -184,10 +174,29 @@ public class library_Panel extends JPanel{
 			bt1.addActionListener(new ActionListener() {  
 				public void actionPerformed(ActionEvent e) {       
 					int i =0;
-					if(i==1) {
-						JOptionPane.showMessageDialog(null, "로그인성공");
-						dispose();
-						b=1;
+					// 로그인 하는 것을 자료구조
+					Binary_search bs = new Binary_search();
+					i = bs.BSearch_id(st, Integer.parseInt(tf1.getText())); // 이진 탐색으로 찾아오기
+					System.out.println(st[i].get(0).number);
+					System.out.println(st[i].get(0).pass);
+					if(i!=-1) {// -1이 아니면 아이디가 있다는것
+						
+						String pw=""; // 비밀번호 재해독
+						char[] secret_pw = pw1.getPassword();
+						for(char cha : secret_pw){ Character.toString(cha); 
+							pw += (pw.equals("")) ? ""+cha+"" : ""+cha+""; 
+						}
+						System.out.println(pw);
+						
+						if(st[i].get(0).pass.equals(pw)){ // 비밀번호 비교
+							JOptionPane.showMessageDialog(null, "로그인성공");
+							man=i;
+							reservation re = new reservation();
+							dispose();
+							
+						}else {
+							JOptionPane.showMessageDialog(null, "로그인실패");
+						}
 					}else {
 						JOptionPane.showMessageDialog(null, "로그인실패");
 					}
@@ -204,6 +213,81 @@ public class library_Panel extends JPanel{
 		}
 		
 	}
+	
+	public class reservation extends JFrame { // 예약창
+		public reservation(){
+			
+			Font f1 = new Font("바탕",Font.PLAIN,15);
+			
+			JLabel lb1=new JLabel("좌석");    
+			lb1.setBounds(20,50, 80,30);
+			lb1.setFont(f1);
+			
+			Choice ch1 = new Choice(); // 예약 자리 초이스
+			for(int i = 0; i<25 ;i++) {
+				if(lt[i].get(0).orr==0){
+					ch1.add(lt[i].get(0).number+"");
+				}else {
+					ch1.add("예약됨");
+				}
+			}
+			ch1.setBounds(100,50, 100,30);
+			
+
+			JLabel lb2=new JLabel("시간");    
+			lb2.setBounds(20,100, 80,30);
+			lb2.setFont(f1);
+			
+			Choice ch2 = new Choice(); // 예약 시간 초이스
+			ch2.add("00:30");
+			ch2.add("01:00");
+			ch2.add("01:30");
+			ch2.add("02:00");
+			ch2.add("02:30");
+			ch2.add("03:00");
+			ch2.setBounds(100,100,100,30);
+			
+			JButton bt2 = new JButton("예약");
+			
+			bt2.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e) { // 예약 하기
+					String k =ch1.getSelectedItem();
+					String l =ch2.getSelectedItem();
+					int a=Integer.parseInt(k);
+					a=a-1;
+					
+					if(lt[a].get(0).orr!=1) {
+						if(st[man].get(0).orr!=1) { // 중복예약 선별
+							label2[a].setText(st[man].get(0).name+"  "+ l);
+							st[man].get(0).orr=1;
+							lt[a].get(0).orr=1;
+						}else {
+							JOptionPane.showMessageDialog(null, "이미 예약 하셨습니다");
+							dispose();
+						}
+					}else {
+						JOptionPane.showMessageDialog(null, "예약된 좌석입니다.");
+					}
+				}
+				
+			});
+			bt2.setBounds(100,200, 80,30);  
+			
+			add(lb1);
+			add(lb2);
+			add(ch1);
+			add(ch2);
+			add(bt2);
+			setLocationRelativeTo(null);
+			setTitle("예약창");
+			setSize(320,320);
+			setLayout(null);
+			setVisible(true);
+		}
+	}
+	
+	
 }
 
 

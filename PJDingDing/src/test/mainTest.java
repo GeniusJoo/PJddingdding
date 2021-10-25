@@ -126,7 +126,7 @@ public class mainTest extends JFrame{
 			}
 		}
 	}
-		
+	
 	public static void main(String[] args) {
 		new mainTest(); 
 	}

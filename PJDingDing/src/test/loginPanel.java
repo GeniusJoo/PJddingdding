@@ -5,7 +5,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import test.library_Panel.li;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +17,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 public class loginPanel extends JFrame {// 로그인 패널
-	public int a=0;
 	public loginPanel() {
 
 		Font f1 = new Font("바탕",Font.PLAIN,15);
@@ -51,7 +49,6 @@ public class loginPanel extends JFrame {// 로그인 패널
 				if(i==1) {
 					JOptionPane.showMessageDialog(null, "로그인성공");
 					dispose();
-					a=1;
 				}else {
 					JOptionPane.showMessageDialog(null, "로그인실패");
 				}
