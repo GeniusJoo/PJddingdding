@@ -11,8 +11,6 @@ public class Binary_search {// ÀÌÁøÅ½»ö
 
 	    while(low <= high) {
 	        mid = (low + high) / 2;
-	        System.out.println(mid);
-	        System.out.println(arr[mid].get(0).number);
 	        if (arr[mid].get(0).number == target)
 	            return mid;
 	        else if (arr[mid].get(0).number > target)

@@ -37,6 +37,7 @@ public class library_Panel extends JPanel{
 	
 	JFrame mainframe;
 	JScrollPane graphScroll;
+	CardLayout cLayout;
 	
 	JButton[] libBk = new JButton[30];//도서관버튼
 	JLabel[] label1 = new JLabel[25];// 도서관라벨
@@ -46,10 +47,11 @@ public class library_Panel extends JPanel{
 	ArrayList<stu>[] st = info.student_info(); // 학생정보
 	loginPanel1 login; // 로그인 패널
 	int man; // 예약자 임시저장
+	int canor=0; // 예약 or 취소
 	
 	public library_Panel(JFrame mainframe, CardLayout cLayout) {
 		this.mainframe= mainframe; 
-				
+		this.cLayout = cLayout;		
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////
 		// NORTH: menu 메뉴바 테스트 샘플
@@ -109,10 +111,13 @@ public class library_Panel extends JPanel{
 		
 		JButton btnBack = new JButton("뒤로가기");
 		JButton btnRe = new JButton("예약하기");
+		JButton btnce = new JButton("예약취소");
 		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
 		btnRe.addActionListener(new librayPanelListener());
+		btnce.addActionListener(new librayPanelListener());
 		buttonPanel.add(btnBack);
 		buttonPanel.add(btnRe);
+		buttonPanel.add(btnce);
 		southPanel.add(buttonPanel);
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
@@ -126,19 +131,27 @@ public class library_Panel extends JPanel{
 			String name = e.getActionCommand();
 			switch(name) {
 				case"예약하기":
+					canor=0;
 					login = new loginPanel1();
-				case"나가기":
-					
 					break;
-				case"강의실":
+				case"예약취소":
+					canor=1;
+					login = new loginPanel1();
 					break;
-				case"식당":
+				case "나가기":
+					cLayout.show(mainframe.getContentPane(), "main");
+					break;	
+				case "강의실":
+					cLayout.show(mainframe.getContentPane(), "classroom");
 					break;
-				case"조회":
+				case "조회":
+					cLayout.show(mainframe.getContentPane(), "search");
+					break;
+				case "식당":
+					cLayout.show(mainframe.getContentPane(), "cafeteria");
 					break;
 				default:
 					break;
-					
 			}
 		}
 	}
@@ -177,21 +190,22 @@ public class library_Panel extends JPanel{
 					// 로그인 하는 것을 자료구조
 					Binary_search bs = new Binary_search();
 					i = bs.BSearch_id(st, Integer.parseInt(tf1.getText())); // 이진 탐색으로 찾아오기
-					System.out.println(st[i].get(0).number);
-					System.out.println(st[i].get(0).pass);
+					if(i==-1) {JOptionPane.showMessageDialog(null, "로그인실패");} // 아이디 없음
 					if(i!=-1) {// -1이 아니면 아이디가 있다는것
-						
 						String pw=""; // 비밀번호 재해독
 						char[] secret_pw = pw1.getPassword();
 						for(char cha : secret_pw){ Character.toString(cha); 
 							pw += (pw.equals("")) ? ""+cha+"" : ""+cha+""; 
 						}
-						System.out.println(pw);
 						
 						if(st[i].get(0).pass.equals(pw)){ // 비밀번호 비교
 							JOptionPane.showMessageDialog(null, "로그인성공");
 							man=i;
-							reservation re = new reservation();
+							if(canor==0) { //상태에 따라 예약과 취소로 이동
+								reservation re = new reservation();
+							}else {
+								cancel ce = new cancel();
+							}
 							dispose();
 							
 						}else {
@@ -257,11 +271,12 @@ public class library_Panel extends JPanel{
 					int a=Integer.parseInt(k);
 					a=a-1;
 					
-					if(lt[a].get(0).orr!=1) {
-						if(st[man].get(0).orr!=1) { // 중복예약 선별
+					if(lt[a].get(0).orr==0) {
+						if(st[man].get(0).orr==0) { // 중복예약 선별
 							label2[a].setText(st[man].get(0).name+"  "+ l);
-							st[man].get(0).orr=1;
-							lt[a].get(0).orr=1;
+							st[man].get(0).orr=a;
+							lt[a].get(0).orr=st[man].get(0).number;
+							man=0;
 						}else {
 							JOptionPane.showMessageDialog(null, "이미 예약 하셨습니다");
 							dispose();
@@ -287,6 +302,57 @@ public class library_Panel extends JPanel{
 		}
 	}
 	
+	public class cancel extends JFrame{ // 예약 취소
+		public cancel() {
+			int man1 = man;
+			int lt1 = st[man1].get(0).orr;
+			if(lt1==0){
+				JOptionPane.showMessageDialog(null, "예약한 항목이 없습니다.");
+				dispose();}
+			
+			JLabel lb1=new JLabel("예약자:"+st[man].get(0).name);
+			lb1.setBounds(20,50, 80,30);
+			JLabel lb2=new JLabel("좌석:"+lt[lt1].get(0).number);
+			lb2.setBounds(20,100, 80,30);
+			JLabel lb3 = new JLabel("취소하시겠습니까?");
+			lb3.setBounds(120,150, 120,30);
+			JButton bt1 = new JButton("예약취소");
+			bt1.setBounds(50,200, 90,30);  
+			JButton bt2 = new JButton("나가기");
+			bt2.setBounds(160,200, 90,30);  
+			
+			bt1.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent e) {
+					st[man].get(0).orr=0;
+					lt[lt1].get(0).orr=0;
+					man=0;
+					label2[lt1].setText("***");
+					JOptionPane.showMessageDialog(null, "취소되었습니다.");
+					dispose();
+				}
+			});
+			
+			bt2.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			
+			add(lb1);
+			add(lb2);
+			add(lb3);
+			add(bt1);
+			add(bt2);
+			
+			setLocationRelativeTo(null);
+			setTitle("예약취소");
+			setSize(320,320);
+			setLayout(null);
+			setVisible(true);
+		}
+	}
 	
 }
 
