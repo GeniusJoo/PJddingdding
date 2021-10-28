@@ -93,7 +93,7 @@ public class classroom_Panel extends JPanel{
 				}
 			}
 		});
-		
+		root.searchAllTreeNode();
 		
 		add(centerPanel, BorderLayout.CENTER);
 		/////////////////////////////////////

@@ -95,15 +95,40 @@ public class information {
 		TreeNode root = new TreeNode("root");
 		
 		TreeNode EB5 = root.addChildNode("5공학관");// 5공학관
-		TreeNode EB3 = root.addChildNode("3공학관");// 3공학관
+		TreeNode EB1 = root.addChildNode("1공학관");// 3공학관
 		
-		TreeNode floor1 = EB5.addChildNode("1층");
-		TreeNode floor2 = EB5.addChildNode("2층");
-		TreeNode floor3 = EB5.addChildNode("3층");
+		TreeNode floor51 = EB5.addChildNode("1층"); // 5공 층수
+		TreeNode floor52 = EB5.addChildNode("2층");
+		TreeNode floor53 = EB5.addChildNode("3층");
 		
-		TreeNode Y5101 = floor1.addChildNode("Y5101:대형작업실"); // 5공1층
-		TreeNode Y5107 = floor1.addChildNode("Y5107:입문설계실2");
-		TreeNode Y5110 = floor1.addChildNode("Y5110:입문설계실1");
+		TreeNode Y5101 = floor51.addChildNode("Y5101:대형작업실"); // 5공1층
+		TreeNode Y5107 = floor51.addChildNode("Y5107:입문설계실2");
+		TreeNode Y5110 = floor51.addChildNode("Y5110:입문설계실1");
+		
+		TreeNode Y5221 = floor52.addChildNode("Y5221:시청각실"); // 5공2층
+		TreeNode Y5235 = floor52.addChildNode("Y5235:시청각실");
+		TreeNode Y5243 = floor52.addChildNode("Y5243:학생회실");
+		
+		TreeNode Y5319 = floor53.addChildNode("Y5319:공학인증실"); // 5공3층
+		TreeNode Y5329 = floor53.addChildNode("Y5329:교통안전실");
+		TreeNode Y5337 = floor53.addChildNode("Y5337:교통기기실");
+		
+		TreeNode floor11 = EB1.addChildNode("1층"); // 1공 층수
+		TreeNode floor12 = EB1.addChildNode("2층");
+		TreeNode floor13 = EB1.addChildNode("3층");
+		
+		TreeNode Y114 = floor11.addChildNode("Y114:학회실"); // 3공 1층
+		TreeNode Y115 = floor11.addChildNode("Y115:학부실험실");
+		TreeNode Y131 = floor11.addChildNode("Y131:공과대 학생회실");
+		
+		TreeNode Y201 = floor12.addChildNode("Y201:컴퓨터실습실"); // 3공2층
+		TreeNode Y219 = floor12.addChildNode("Y219:공대연구소");
+		TreeNode Y224 = floor12.addChildNode("Y224:캡스톤디자인");
+		
+		TreeNode Y314 = floor13.addChildNode("Y314:에너지환경촉매연구실"); // 3공3층
+		TreeNode Y321 = floor13.addChildNode("Y321:지능형시스템연구실");
+		TreeNode Y325 = floor13.addChildNode("Y325:반응공학연구실");
+		
 		
 		return root;
 	}
