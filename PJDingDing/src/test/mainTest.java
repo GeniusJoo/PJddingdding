@@ -32,7 +32,7 @@ public class mainTest extends JFrame{
 	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\map.png").getImage();
     ImageIcon background1 = new ImageIcon(background);
 	
-	CardLayout cLayout = new CardLayout();;
+	CardLayout cLayout = new CardLayout();
 	JButton btnslr, btnlib, btnrest, btnser;
 	
 	public mainTest() {// 테스트용 생성자
@@ -49,7 +49,7 @@ public class mainTest extends JFrame{
 		
 		// layout
 		setLayout(cLayout);
-		add(new MainPanel());
+		add("main",new MainPanel());
 		add("search",new search_Panel(this, cLayout));
 		add("cafeteria", new cafeteria_Panel(this, cLayout));
 		add("classroom", new classroom_Panel(this, cLayout));
@@ -129,5 +129,6 @@ public class mainTest extends JFrame{
 	
 	public static void main(String[] args) {
 		new mainTest(); 
+				
 	}
 }

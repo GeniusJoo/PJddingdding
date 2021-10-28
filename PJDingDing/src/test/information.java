@@ -2,6 +2,8 @@ package test;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+
 public class information {
 	ArrayList[] library_info() { // 도서관 자리
 		ArrayList<lib>[] lt = new ArrayList[25];
@@ -88,5 +90,43 @@ public class information {
 			orr=0;
 		}
 	}
+	
+	public TreeNode Tree() {
+		TreeNode root = new TreeNode("root");
+		
+		TreeNode EB5 = root.addChildNode("5공학관");// 5공학관
+		TreeNode EB3 = root.addChildNode("3공학관");// 3공학관
+		
+		TreeNode floor1 = EB5.addChildNode("1층");
+		TreeNode floor2 = EB5.addChildNode("2층");
+		TreeNode floor3 = EB5.addChildNode("3층");
+		
+		TreeNode Y5101 = floor1.addChildNode("Y5101:대형작업실"); // 5공1층
+		TreeNode Y5107 = floor1.addChildNode("Y5107:입문설계실2");
+		TreeNode Y5110 = floor1.addChildNode("Y5110:입문설계실1");
+		
+		return root;
+	}
+	
+	public TreeNode[] reTree(TreeNode i[], int j) {
+		int k = i[j].getChildNodeArray().size();
+		TreeNode s[]= new TreeNode[k];
+		
+		for(int a=0 ; a<i[j].getChildNodeArray().size() ; a++) {
+				s[a]=i[j].getChildNodeArray().get(a);
+		}
+		return s;
+	}
+	
+	public JButton[] reButton(TreeNode a[], int b) {
+		
+		JButton bk[]=new JButton[a[b].getChildNodeArray().size()];
+		
+		for(int i =0; i<a[b].getChildNodeArray().size();i++) {
+			bk[i]= new JButton(a[b].getChildNodeArray().get(i).getNodeName());
+		}
+		return bk;
+	}
+	
 }
 

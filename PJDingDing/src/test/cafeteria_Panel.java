@@ -31,6 +31,7 @@ import javax.swing.SpringLayout;
 public class cafeteria_Panel extends JPanel {
 	JFrame mainframe;
 	JScrollPane graphScroll;
+	CardLayout cLayout;
 	
 	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\rest.jpg").getImage(); // 지워도 됨
     ImageIcon background1 = new ImageIcon(background);
@@ -41,18 +42,18 @@ public class cafeteria_Panel extends JPanel {
 
 	public cafeteria_Panel(JFrame mainframe, CardLayout cLayout) {
 		this.mainframe= mainframe; 
-		
+		this.cLayout=cLayout;
+		JScrollPane scroll;
 		setLayout(new BorderLayout());
 		//////////////////////////////////////////
 		// NORTH: menu 메뉴바 테스트 샘플
 		Menu menu = new Menu();
 		menu.addMenu("User");
 		menu.getMenu().setMnemonic(KeyEvent.VK_1);
-		menu.addMenuItem("나가기", KeyEvent.VK_E, new UserPanelListener());
-		menu.addMenuItem("강의실", KeyEvent.VK_E, new UserPanelListener());
-		menu.addMenuItem("도서실", KeyEvent.VK_E, new UserPanelListener());
-		menu.addMenuItem("식당", KeyEvent.VK_E, new UserPanelListener());
-		menu.addMenuItem("조회", KeyEvent.VK_E, new UserPanelListener());
+		menu.addMenuItem("나가기", KeyEvent.VK_E, new cafeteriaPanelListener());
+		menu.addMenuItem("강의실", KeyEvent.VK_E, new cafeteriaPanelListener());
+		menu.addMenuItem("도서실", KeyEvent.VK_E, new cafeteriaPanelListener());
+		menu.addMenuItem("조회", KeyEvent.VK_E, new cafeteriaPanelListener());
 		menu.finishAddItem();
 		add(menu, BorderLayout.NORTH);
 		
@@ -64,7 +65,8 @@ public class cafeteria_Panel extends JPanel {
 		picLabel.setAlignmentX(picLabel.LEFT_ALIGNMENT);
 		centerPanel.add(picLabel, centerPanel);
 	
-		add(centerPanel, BorderLayout.CENTER);
+		scroll = new JScrollPane(centerPanel);
+		add(scroll, BorderLayout.CENTER);
 		centerPanel.revalidate();
 		/////////////////////////////////////
 		//SOUTH
@@ -150,12 +152,24 @@ public class cafeteria_Panel extends JPanel {
 	}
 	
 
-	private class UserPanelListener implements ActionListener { //버튼 리스너
+	private class cafeteriaPanelListener implements ActionListener { //버튼 리스너
 		public void actionPerformed(ActionEvent e) {
-			String name = e.getActionCommand();
+			String name = e.getActionCommand();	
 			switch(name) {
-				case "exit":
+				case "나가기":
+					cLayout.show(mainframe.getContentPane(), "main");
 					break;	
+				case "강의실":
+					cLayout.show(mainframe.getContentPane(), "classroom");
+					break;
+				case "도서실":
+					cLayout.show(mainframe.getContentPane(), "library");
+					break;
+				case "조회":
+					cLayout.show(mainframe.getContentPane(), "search");
+					break;
+				default:
+					break;
 			}
 		}
 	}
