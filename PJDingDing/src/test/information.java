@@ -26,7 +26,7 @@ public class information {
 			number = a+1;
 			name = 0;
 			time = 0;
-			orr =0;
+			orr =-1;
 		}
 	}
 	
@@ -87,7 +87,7 @@ public class information {
 			number = a;
 			name = b;
 			pass = c;
-			orr=0;
+			orr=30;
 		}
 	}
 	
@@ -97,9 +97,9 @@ public class information {
 		TreeNode EB5 = root.addChildNode("5奢з婦");// 5奢з婦
 		TreeNode EB1 = root.addChildNode("1奢з婦");// 3奢з婦
 		
-		TreeNode floor51 = EB5.addChildNode("1類"); // 5奢 類熱
-		TreeNode floor52 = EB5.addChildNode("2類");
-		TreeNode floor53 = EB5.addChildNode("3類");
+		TreeNode floor51 = EB5.addChildNode("5奢_1類"); // 5奢 類熱
+		TreeNode floor52 = EB5.addChildNode("5奢_2類");
+		TreeNode floor53 = EB5.addChildNode("5奢_3類");
 		
 		TreeNode Y5101 = floor51.addChildNode("Y5101:渠⑽濛機褒"); // 5奢1類
 		TreeNode Y5107 = floor51.addChildNode("Y5107:殮僥撲啗褒2");
@@ -113,9 +113,9 @@ public class information {
 		TreeNode Y5329 = floor53.addChildNode("Y5329:掖鱔寰瞪褒");
 		TreeNode Y5337 = floor53.addChildNode("Y5337:掖鱔晦晦褒");
 		
-		TreeNode floor11 = EB1.addChildNode("1類"); // 1奢 類熱
-		TreeNode floor12 = EB1.addChildNode("2類");
-		TreeNode floor13 = EB1.addChildNode("3類");
+		TreeNode floor11 = EB1.addChildNode("1奢_1類"); // 1奢 類熱
+		TreeNode floor12 = EB1.addChildNode("1奢_2類");
+		TreeNode floor13 = EB1.addChildNode("1奢_3類");
 		
 		TreeNode Y114 = floor11.addChildNode("Y114:з�蜇�"); // 3奢 1類
 		TreeNode Y115 = floor11.addChildNode("Y115:з睡褒я褒");

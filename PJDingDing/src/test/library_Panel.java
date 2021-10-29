@@ -271,8 +271,8 @@ public class library_Panel extends JPanel{
 					int a=Integer.parseInt(k);
 					a=a-1;
 					
-					if(lt[a].get(0).orr==0) {
-						if(st[man].get(0).orr==0) { // 중복예약 선별
+					if(lt[a].get(0).orr!=-1) {
+						if(st[man].get(0).orr==30) { // 중복예약 선별
 							label2[a].setText(st[man].get(0).name+"  "+ l);
 							st[man].get(0).orr=a;
 							lt[a].get(0).orr=st[man].get(0).number;
@@ -306,7 +306,7 @@ public class library_Panel extends JPanel{
 		public cancel() {
 			int man1 = man;
 			int lt1 = st[man1].get(0).orr;
-			if(lt1==0){
+			if(lt1==30){
 				JOptionPane.showMessageDialog(null, "예약한 항목이 없습니다.");
 				dispose();}
 			
@@ -324,8 +324,8 @@ public class library_Panel extends JPanel{
 			bt1.addActionListener(new ActionListener() {
 				
 				public void actionPerformed(ActionEvent e) {
-					st[man].get(0).orr=0;
-					lt[lt1].get(0).orr=0;
+					st[man].get(0).orr=30;
+					lt[lt1].get(0).orr=-1;
 					man=0;
 					label2[lt1].setText("***");
 					JOptionPane.showMessageDialog(null, "취소되었습니다.");
