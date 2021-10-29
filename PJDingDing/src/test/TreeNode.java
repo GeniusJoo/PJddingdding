@@ -24,7 +24,7 @@ public class TreeNode {
 		return childNode;		
 	}
 	
-	public void searchAllTreeNode() { // 노는 전체 출
+	public void searchAllTreeNode() { // 노드 전체 출력
 		checkNowTreeInfo();
 
 		for(int i=0 ; i<getChildNodeArray().size() ; i++) {
@@ -53,6 +53,30 @@ public class TreeNode {
 		System.out.println("\n-----------------------------------------------\n");			
 	}
 	
+	public String searchAllNode(String s) { // 노드 전체 출력
+		int k = searchNode(s);
+		if(k==1){
+			return getNodeName();
+		}else {
+			for(int i=0 ; i<getChildNodeArray().size() ; i++) {
+				TreeNode childNode = getChildNodeArray().get(i);
+				String b = childNode.searchAllNode(s);
+				if(b.equals("없음")){
+					
+				}else {
+					return childNode.getParentNode().getNodeName()+" -> "+b;
+				}
+			}
+			return "없음";
+		}
+	}
+	
+	public int searchNode(String s){
+		if(s.equals(getNodeName())){
+			return 1;
+		}
+		return 0;
+	}
 	
 	
 	public String getNodeName() {

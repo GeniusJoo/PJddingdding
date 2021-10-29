@@ -32,6 +32,9 @@ class search_Panel extends JPanel {
 	JScrollPane graphScroll;
 	JTextField tf1 = new JTextField(15);
 	CardLayout cLayout;
+	information info = new information();
+	TreeNode root = info.Tree(); // 트리 root
+	JLabel la = new JLabel();
 	public search_Panel(JFrame mainframe, CardLayout cLayout) {
 		
 		this.mainframe= mainframe; 
@@ -53,10 +56,11 @@ class search_Panel extends JPanel {
 		menu.addMenuItem("조회", KeyEvent.VK_E, new searchPanelListener());
 		menu.finishAddItem();
 		add(menu, BorderLayout.NORTH);
-		
+	
 		///////////////////////
 		//CENTER
 		JPanel centerPanel = new JPanel();
+		centerPanel.add(la);
 		
 		add(centerPanel,BorderLayout.CENTER);
 		centerPanel.revalidate();
@@ -66,10 +70,9 @@ class search_Panel extends JPanel {
 		JPanel buttonPanel = new JPanel(new GridLayout(1,3));
 		JButton btnBack = new JButton("뒤로가기");// 뒤로가기
 		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane())); // 뒤로가기 이벤트
-		JTextField tf1 = new JTextField(15);// 입력창 
+		
 		JButton btnRe = new JButton("찾기"); // 찾기버튼
 		btnRe.addActionListener(new searchPanelListener());// 찾기 이벤트
-		
 		buttonPanel.add(btnBack);
 		buttonPanel.add(tf1);
 		buttonPanel.add(btnRe);
@@ -87,7 +90,9 @@ class search_Panel extends JPanel {
 			switch (name) {
 			case "찾기":
 				// 트리 탐색 구조 불러오기
-				
+				String s = "";
+				s=root.searchAllNode(tf1.getText());
+				la.setText(s);
 				break;
 			case "나가기":
 				cLayout.show(mainframe.getContentPane(), "main");

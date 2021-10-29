@@ -29,7 +29,6 @@ import javax.swing.SpringLayout;
 public class classroom_Panel extends JPanel{
 	
 	JFrame mainframe;
-	JScrollPane graphScroll;
 	CardLayout cLayout;
 	information info = new information();
 	JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -168,18 +167,18 @@ public class classroom_Panel extends JPanel{
 		}
 		///////////////////////// ¹öÆ° ¸®½º³Ê 
 		int j=0;
-		bt[0].addActionListener(new ActionListener() {//
+		bt[0].addActionListener(new ActionListener() {//5°ø
 			public void actionPerformed(ActionEvent e) {
 				for(int i =0; i<eb5.length;i++) {
 					bt1[i].setVisible(true);
 				}
 				for(int i =0; i<building.length;i++) {
-							bt[i].setVisible(false);
+						bt[i].setVisible(false);
 				}
 			}
 		});
 
-		bt[1].addActionListener(new ActionListener() {//
+		bt[1].addActionListener(new ActionListener() {//1°ø
 			public void actionPerformed(ActionEvent e) {
 				for(int i =0; i<eb1.length;i++) {
 							bt2[i].setVisible(true);
@@ -191,6 +190,71 @@ public class classroom_Panel extends JPanel{
 		});
 	
 		
+		bt1[0].addActionListener(new ActionListener() {//5°ø1Ãþ
+			public void actionPerformed(ActionEvent e) {
+				for(int i =0; i<eb5_1.length;i++) {
+							bt1_1[i].setVisible(true);
+				}
+				for(int i =0; i<eb5.length;i++) {
+							bt1[i].setVisible(false);
+				}
+			}
+		});
+		
+		bt1[1].addActionListener(new ActionListener() {//5°ø2Ãþ
+			public void actionPerformed(ActionEvent e) {
+				for(int i =0; i<eb5_2.length;i++) {
+							bt1_2[i].setVisible(true);
+				}
+				for(int i =0; i<eb5.length;i++) {
+							bt1[i].setVisible(false);
+				}
+			}
+		});
+		
+		bt1[2].addActionListener(new ActionListener() {//5°ø3Ãþ
+			public void actionPerformed(ActionEvent e) {
+				for(int i =0; i<eb5_3.length;i++) {
+							bt1_3[i].setVisible(true);
+				}
+				for(int i =0; i<eb5.length;i++) {
+							bt1[i].setVisible(false);
+				}
+			}
+		});
+		
+		bt2[0].addActionListener(new ActionListener() {//1°ø3Ãþ
+			public void actionPerformed(ActionEvent e) {
+				for(int i =0; i<eb1_1.length;i++) {
+							bt2_1[i].setVisible(true);
+				}
+				for(int i =0; i<eb1.length;i++) {
+							bt2[i].setVisible(false);
+				}
+			}
+		});
+		
+		bt2[1].addActionListener(new ActionListener() {//1°ø3Ãþ
+			public void actionPerformed(ActionEvent e) {
+				for(int i =0; i<eb1_2.length;i++) {
+							bt2_2[i].setVisible(true);
+				}
+				for(int i =0; i<eb1.length;i++) {
+							bt2[i].setVisible(false);
+				}
+			}
+		});
+		
+		bt2[2].addActionListener(new ActionListener() {//1°ø3Ãþ
+			public void actionPerformed(ActionEvent e) {
+				for(int i =0; i<eb1_3.length;i++) {
+							bt2_3[i].setVisible(true);
+				}
+				for(int i =0; i<eb1.length;i++) {
+							bt2[i].setVisible(false);
+				}
+			}
+		});
 		
 		//////////////////////////////
 		add(centerPanel, BorderLayout.CENTER);
@@ -204,7 +268,36 @@ public class classroom_Panel extends JPanel{
 		JButton btnre = new JButton("Ã³À½À¸·Î");
 		btnre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+		
+				for(int i =0; i<eb5.length;i++) {
+					bt1[i].setVisible(false);
+				}
+				for(int i =0; i<eb1.length;i++) {
+					bt2[i].setVisible(false);
+				}
+				for(int i =0; i<eb5_1.length;i++) {
+					bt1_1[i].setVisible(false);
+				}
+				for(int i =0; i<eb5_2.length;i++) {
+					bt1_2[i].setVisible(false);
+				}
+				for(int i =0; i<eb5_3.length;i++) {
+					bt1_3[i].setVisible(false);
+				}
+				for(int i =0; i<eb1_1.length;i++) {
+					bt2_1[i].setVisible(false);
+				}
+				for(int i =0; i<eb1_2.length;i++) {
+					bt2_2[i].setVisible(false);
+				}
+				for(int i =0; i<eb1_3.length;i++) {
+					bt2_3[i].setVisible(false);
+				}
 				
+				for(int i =0; i<building.length;i++) {
+					bt[i].setVisible(true);
+				}
+				centerPanel.revalidate();
 			}
 		});
 		buttonPanel.add(btnBack);
