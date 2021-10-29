@@ -239,7 +239,7 @@ public class library_Panel extends JPanel{
 			
 			Choice ch1 = new Choice(); // 예약 자리 초이스
 			for(int i = 0; i<25 ;i++) {
-				if(lt[i].get(0).orr==0){
+				if(lt[i].get(0).orr==-1){
 					ch1.add(lt[i].get(0).number+"");
 				}else {
 					ch1.add("예약됨");
@@ -271,7 +271,7 @@ public class library_Panel extends JPanel{
 					int a=Integer.parseInt(k);
 					a=a-1;
 					
-					if(lt[a].get(0).orr!=-1) {
+					if(lt[a].get(0).orr==-1) {
 						if(st[man].get(0).orr==30) { // 중복예약 선별
 							label2[a].setText(st[man].get(0).name+"  "+ l);
 							st[man].get(0).orr=a;
