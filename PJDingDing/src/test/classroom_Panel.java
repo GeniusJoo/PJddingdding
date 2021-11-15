@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,11 +33,13 @@ public class classroom_Panel extends JPanel{
 	JFrame mainframe;
 	CardLayout cLayout;
 	information info = new information();
-	JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+	JPanel centerPanel = new JPanel(new GridBagLayout());
+	GridBagConstraints gbc = new GridBagConstraints();
+	
 	TreeNode root = info.Tree(); // 트리 root
 	TreeNode building[] = new TreeNode[root.getChildNodeArray().size()];// 전체 건물
 	JButton bt[]=new JButton[root.getChildNodeArray().size()];// 전체건물 버튼
-	
+	int l=0;
 	TreeNode eb5[];// 5공학관
 	JButton bt1[];// 5공학관 버튼
 	TreeNode eb5_1[];// 5공1층
@@ -72,6 +76,9 @@ public class classroom_Panel extends JPanel{
 		
 		////////////////////////////////////
 		//CENTER
+		JLabel newLabel = new JLabel("이름");
+		gbc.fill= GridBagConstraints.NONE; 
+		gbc.gridx=0;
 		//////트리만들기///////
 		//학교(root) -> 건물 -> 층 -> 강의실 강의실정보
 		//학교 건물 층 강의실 정보
@@ -84,7 +91,8 @@ public class classroom_Panel extends JPanel{
 		}
 		for(int i =0; i<root.getChildNodeArray().size();i++) { // 전체 건물 버튼 생성
 			bt[i]= new JButton(root.getChildNodeArray().get(i).getNodeName());
-			centerPanel.add(bt[i]);
+           
+			centerPanel.add(bt[i], gbc);
 		}
 		//5공
 		eb5=new TreeNode[building[0].getChildNodeArray().size()]; // 5공학관 트리
@@ -256,7 +264,62 @@ public class classroom_Panel extends JPanel{
 			}
 		});
 		
-		//////////////////////////////
+		////////////////////////////// 강의실 시간 정보 저장
+		for(int i = 0;i<eb5_1.length;i++,l++) { //5공 1층
+			bt1_1[i].addActionListener(new ActionListener() {
+				int c=l;
+				public void actionPerformed(ActionEvent e) {
+					System.out.println(eb5_1[c].getleafnode());
+					System.out.println(c);
+				}
+			});
+		}
+		l=0;
+		for(int i = 0;i<eb5_1.length;i++) { // 5공 2층
+			bt1_2[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+	
+				}
+			});
+		}
+		
+		for(int i = 0;i<eb5_1.length;i++) { // 5공 3층
+			bt1_3[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+	
+				}
+			});
+		}
+		
+		for(int i = 0;i<eb5_1.length;i++) {// 1공 1층
+			bt2_1[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+	
+				}
+			});
+		}
+		
+		for(int i = 0;i<eb5_1.length;i++) {// 1공 3층
+			bt2_2[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+	
+				}
+			});
+		}
+		
+		for(int i = 0;i<eb5_1.length;i++) {// 1공 3층
+			bt2_3[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+	
+				}
+			});
+		}
+
 		add(centerPanel, BorderLayout.CENTER);
 		/////////////////////////////////////
 		//SOUTH
@@ -265,7 +328,7 @@ public class classroom_Panel extends JPanel{
 		
 		JButton btnBack = new JButton("뒤로가기");
 		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
-		JButton btnre = new JButton("처음으로");
+		JButton btnre = new JButton("처음으로"); // 처음으로 다시 돌아가기 위해 전부다 안보이게 한뒤 처음부분만 보이게한다
 		btnre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		

@@ -203,8 +203,10 @@ public class library_Panel extends JPanel{
 							man=i;
 							if(canor==0) { //상태에 따라 예약과 취소로 이동
 								reservation re = new reservation();
+								re.setLocationRelativeTo(null);
 							}else {
 								cancel ce = new cancel();
+								ce.setLocationRelativeTo(null);
 							}
 							dispose();
 							
@@ -223,6 +225,7 @@ public class library_Panel extends JPanel{
 			setTitle("로그인창");
 			setSize(320,320);
 			setLayout(null);
+			setLocationRelativeTo(null);
 			setVisible(true);
 		}
 		
@@ -346,10 +349,11 @@ public class library_Panel extends JPanel{
 			add(bt1);
 			add(bt2);
 			
-			setLocationRelativeTo(null);
+			
 			setTitle("예약취소");
 			setSize(320,320);
 			setLayout(null);
+			setLocationRelativeTo(null);
 			setVisible(true);
 		}
 	}

@@ -6,6 +6,8 @@ public class TreeNode {
 	private String nodeName; // 현재 노드의 이름
 	private TreeNode parentNode; // 부모 노드
 	private ArrayList<TreeNode> childNodeArray = new ArrayList<>();// 자식 array
+	private String k;
+	private String[] info;
 	
 	TreeNode(String nodeName) { // 노드 생성자
 		this.nodeName = nodeName;
@@ -78,6 +80,16 @@ public class TreeNode {
 		return 0;
 	}
 	
+	public void setleafnode(String s){
+		if(childNodeArray.isEmpty()){
+			k=s;
+			info = k.split(",");
+		}
+	}
+	
+	public String[] getleafnode() {
+		return info;
+	}
 	
 	public String getNodeName() {
 		return nodeName;
