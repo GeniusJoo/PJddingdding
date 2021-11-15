@@ -102,7 +102,7 @@ public class information {
 		TreeNode floor53 = EB5.addChildNode("5공_3층");
 		
 		TreeNode Y5101 = floor51.addChildNode("Y5101:대형작업실"); // 5공1층
-		Y5101.setleafnode("Y5101:대형작업실,"); // 각 강의실 정보 넣기
+		Y5101.setleafnode("Y5101:대형작업실,홍길동,안정장비착용"); // 각 강의실 정보 넣기
 		TreeNode Y5107 = floor51.addChildNode("Y5107:입문설계실2");
 		TreeNode Y5110 = floor51.addChildNode("Y5110:입문설계실1");
 		

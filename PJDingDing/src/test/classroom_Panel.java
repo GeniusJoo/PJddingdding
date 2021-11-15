@@ -34,8 +34,8 @@ public class classroom_Panel extends JPanel{
 	CardLayout cLayout;
 	information info = new information();
 	JPanel centerPanel = new JPanel(new GridBagLayout());
-	GridBagConstraints gbc = new GridBagConstraints();
-	
+	GridBagConstraints gbc;
+	JLabel newLabel2[] = new JLabel[5];// 강의실 이름 담당자같은 정보 표시
 	TreeNode root = info.Tree(); // 트리 root
 	TreeNode building[] = new TreeNode[root.getChildNodeArray().size()];// 전체 건물
 	JButton bt[]=new JButton[root.getChildNodeArray().size()];// 전체건물 버튼
@@ -76,8 +76,34 @@ public class classroom_Panel extends JPanel{
 		
 		////////////////////////////////////
 		//CENTER
-		JLabel newLabel = new JLabel("이름");
-		gbc.fill= GridBagConstraints.NONE; 
+
+		JLabel JL = new JLabel("진행상황 설명 (추후 추가)");
+		JLabel newLabel[] = new JLabel[5];
+		newLabel[0] = new JLabel("강의실명 : ");
+		newLabel[1] = new JLabel("담당자 : ");
+		newLabel[2] = new JLabel("주의사항");
+		newLabel[3] = new JLabel("예약상태 : ");
+		newLabel[4] = new JLabel("예약시간 : ");
+		
+		
+		gbc = new GridBagConstraints();
+		gbc.fill= GridBagConstraints.BOTH; 
+		gbc.gridx=0;
+		gbc.gridy=0;
+	    gbc.weightx = 1.0;
+	    gbc.weighty = 1.0;
+	    centerPanel.add(JL, gbc);
+		for(int i=0; i<newLabel.length;i++) {
+			gbc.gridy=3+i;
+			centerPanel.add(newLabel[i], gbc);
+		}
+		
+		for(int i=0;i<newLabel2.length;i++) {
+			newLabel2[i] = new JLabel("");
+			gbc.gridx=1;
+			gbc.gridy=3+i;
+			centerPanel.add(newLabel2[i], gbc);
+		}
 		gbc.gridx=0;
 		//////트리만들기///////
 		//학교(root) -> 건물 -> 층 -> 강의실 강의실정보
@@ -89,9 +115,10 @@ public class classroom_Panel extends JPanel{
 		for(int i=0 ; i<root.getChildNodeArray().size() ; i++) { // 전체 건물 정보 저장
 			building[i]=root.getChildNodeArray().get(i);
 		}
+		gbc.gridy=1;
 		for(int i =0; i<root.getChildNodeArray().size();i++) { // 전체 건물 버튼 생성
 			bt[i]= new JButton(root.getChildNodeArray().get(i).getNodeName());
-           
+			gbc.gridx=i;
 			centerPanel.add(bt[i], gbc);
 		}
 		//5공
@@ -100,7 +127,8 @@ public class classroom_Panel extends JPanel{
 		eb5=info.reTree(building, 0); //정보 저장
 		bt1=info.reButton(building, 0); // 버튼 만들기
 		for(int i =0; i<eb5.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt1[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt1[i],gbc);
 			bt1[i].setVisible(false);
 		}
 		
@@ -110,7 +138,8 @@ public class classroom_Panel extends JPanel{
 		eb5_1=info.reTree(eb5, 0); //정보 저장
 		bt1_1=info.reButton(eb5, 0); // 버튼 만들기
 		for(int i =0; i<eb5_1.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt1_1[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt1_1[i],gbc);
 			bt1_1[i].setVisible(false);
 		}
 		
@@ -120,7 +149,8 @@ public class classroom_Panel extends JPanel{
 		eb5_2=info.reTree(eb5, 1); //정보 저장
 		bt1_2=info.reButton(eb5, 1); // 버튼 만들기
 		for(int i =0; i<eb5_2.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt1_2[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt1_2[i], gbc);
 			bt1_2[i].setVisible(false);
 		}
 		
@@ -130,7 +160,8 @@ public class classroom_Panel extends JPanel{
 		eb5_3=info.reTree(eb5, 2); //정보 저장
 		bt1_3=info.reButton(eb5, 2); // 버튼 만들기
 		for(int i =0; i<eb5_3.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt1_3[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt1_3[i],gbc);
 			bt1_3[i].setVisible(false);
 		}
 		
@@ -140,7 +171,8 @@ public class classroom_Panel extends JPanel{
 		eb1=info.reTree(building, 1); //정보 저장
 		bt2=info.reButton(building, 1); // 버튼 만들기
 		for(int i =0; i<eb1.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt2[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt2[i],gbc);
 			bt2[i].setVisible(false);
 		}
 		
@@ -150,7 +182,8 @@ public class classroom_Panel extends JPanel{
 		eb1_1=info.reTree(eb1, 0); //정보 저장
 		bt2_1=info.reButton(eb1, 0); // 버튼 만들기
 		for(int i =0; i<eb1_1.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt2_1[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt2_1[i],gbc);
 			bt2_1[i].setVisible(false);
 		}
 		
@@ -160,7 +193,8 @@ public class classroom_Panel extends JPanel{
 		eb1_2=info.reTree(eb1, 1); //정보 저장
 		bt2_2=info.reButton(eb1, 1); // 버튼 만들기
 		for(int i =0; i<eb1_2.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt2_2[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt2_2[i],gbc);
 			bt2_2[i].setVisible(false);
 		}
 		
@@ -170,7 +204,8 @@ public class classroom_Panel extends JPanel{
 		eb1_3=info.reTree(eb1, 2); //정보 저장
 		bt2_3=info.reButton(eb1, 2); // 버튼 만들기
 		for(int i =0; i<eb1_3.length;i++) { // 버튼 넣어두고 화면에 사라짐
-			centerPanel.add(bt2_3[i]);
+			gbc.gridx=i;
+			centerPanel.add(bt2_3[i],gbc);
 			bt2_3[i].setVisible(false);
 		}
 		///////////////////////// 버튼 리스너 
@@ -268,9 +303,11 @@ public class classroom_Panel extends JPanel{
 		for(int i = 0;i<eb5_1.length;i++,l++) { //5공 1층
 			bt1_1[i].addActionListener(new ActionListener() {
 				int c=l;
+				String[] k = eb5_1[c].getleafnode();
 				public void actionPerformed(ActionEvent e) {
-					System.out.println(eb5_1[c].getleafnode());
-					System.out.println(c);
+					for(int i = 0; i<k.length;i++){
+						newLabel2[i].setText(k[i]);
+					}
 				}
 			});
 		}
@@ -360,11 +397,17 @@ public class classroom_Panel extends JPanel{
 				for(int i =0; i<building.length;i++) {
 					bt[i].setVisible(true);
 				}
+				for(int i =0; i<newLabel2.length;i++) {
+					newLabel2[i].setText("");
+				}
 				centerPanel.revalidate();
 			}
 		});
+		JButton btnlogin = new JButton("예약하기");
+		
 		buttonPanel.add(btnBack);
 		buttonPanel.add(btnre);
+		buttonPanel.add(btnlogin);
 		southPanel.add(buttonPanel);
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
