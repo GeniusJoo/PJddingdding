@@ -92,7 +92,7 @@ public class information {
 	}
 	
 	public TreeNode Tree() {
-		TreeNode root = new TreeNode("root");
+		TreeNode root = new TreeNode("명지대학교 자연캠퍼스");
 		
 		TreeNode EB5 = root.addChildNode("5공학관");// 5공학관
 		TreeNode EB1 = root.addChildNode("1공학관");// 3공학관
