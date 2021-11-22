@@ -57,6 +57,7 @@ public class classroom_Panel extends JPanel{
 	JButton bt2_2[];// 1공학관 2층 버튼
 	TreeNode eb1_3[];// 1공학관 3층
 	JButton bt2_3[];// 1공학관 3층 버튼
+	String position=""; // 현위치 
 	
 	public classroom_Panel(JFrame mainframe, CardLayout cLayout) {
 		this.mainframe= mainframe;
@@ -76,8 +77,10 @@ public class classroom_Panel extends JPanel{
 		
 		////////////////////////////////////
 		//CENTER
-
-		JLabel JL = new JLabel("진행상황 설명 (추후 추가)");
+		
+		position="명지대학교 자연캠퍼스 ->";
+		JLabel JL = new JLabel(position);
+		
 		JLabel newLabel[] = new JLabel[5];
 		newLabel[0] = new JLabel("강의실명 : ");
 		newLabel[1] = new JLabel("담당자 : ");
@@ -212,6 +215,8 @@ public class classroom_Panel extends JPanel{
 		int j=0;
 		bt[0].addActionListener(new ActionListener() {//5공
 			public void actionPerformed(ActionEvent e) {
+				position+=bt[0].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb5.length;i++) {
 					bt1[i].setVisible(true);
 				}
@@ -223,6 +228,8 @@ public class classroom_Panel extends JPanel{
 
 		bt[1].addActionListener(new ActionListener() {//1공
 			public void actionPerformed(ActionEvent e) {
+				position+=bt[1].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb1.length;i++) {
 							bt2[i].setVisible(true);
 				}
@@ -235,6 +242,8 @@ public class classroom_Panel extends JPanel{
 		
 		bt1[0].addActionListener(new ActionListener() {//5공1층
 			public void actionPerformed(ActionEvent e) {
+				position+=bt1[0].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb5_1.length;i++) {
 							bt1_1[i].setVisible(true);
 				}
@@ -246,6 +255,8 @@ public class classroom_Panel extends JPanel{
 		
 		bt1[1].addActionListener(new ActionListener() {//5공2층
 			public void actionPerformed(ActionEvent e) {
+				position+=bt1[1].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb5_2.length;i++) {
 							bt1_2[i].setVisible(true);
 				}
@@ -257,6 +268,8 @@ public class classroom_Panel extends JPanel{
 		
 		bt1[2].addActionListener(new ActionListener() {//5공3층
 			public void actionPerformed(ActionEvent e) {
+				position+=bt1[2].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb5_3.length;i++) {
 							bt1_3[i].setVisible(true);
 				}
@@ -268,6 +281,8 @@ public class classroom_Panel extends JPanel{
 		
 		bt2[0].addActionListener(new ActionListener() {//1공3층
 			public void actionPerformed(ActionEvent e) {
+				position+=bt2[0].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb1_1.length;i++) {
 							bt2_1[i].setVisible(true);
 				}
@@ -279,6 +294,8 @@ public class classroom_Panel extends JPanel{
 		
 		bt2[1].addActionListener(new ActionListener() {//1공3층
 			public void actionPerformed(ActionEvent e) {
+				position+=bt2[1].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb1_2.length;i++) {
 							bt2_2[i].setVisible(true);
 				}
@@ -290,6 +307,8 @@ public class classroom_Panel extends JPanel{
 		
 		bt2[2].addActionListener(new ActionListener() {//1공3층
 			public void actionPerformed(ActionEvent e) {
+				position+=bt2[1].getText()+"->";
+				JL.setText(position);
 				for(int i =0; i<eb1_3.length;i++) {
 							bt2_3[i].setVisible(true);
 				}
@@ -368,7 +387,8 @@ public class classroom_Panel extends JPanel{
 		JButton btnre = new JButton("처음으로"); // 처음으로 다시 돌아가기 위해 전부다 안보이게 한뒤 처음부분만 보이게한다
 		btnre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
+				position="명지대학교 자연캠퍼스";
+				JL.setText(position);
 				for(int i =0; i<eb5.length;i++) {
 					bt1[i].setVisible(false);
 				}
