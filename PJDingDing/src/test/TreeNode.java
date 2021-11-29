@@ -8,6 +8,7 @@ public class TreeNode {
 	private ArrayList<TreeNode> childNodeArray = new ArrayList<>();// 자식 array
 	private String k;
 	private String[] info;
+
 	
 	TreeNode(String nodeName) { // 노드 생성자
 		this.nodeName = nodeName;
@@ -73,14 +74,55 @@ public class TreeNode {
 		}
 	}
 	
-	public int searchNode(String s){
+	public TreeNode findnode(String name) {
+		int k= searchNode(name);
+		if(k==1) {
+			return this;
+		}else {
+			TreeNode b = null;
+			for(int i=0 ; i<getChildNodeArray().size() ; i++) {
+				TreeNode childNode = getChildNodeArray().get(i);
+				b=childNode.findnode(name);
+				if(b.nodeName.equals(name)){
+					return b;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public String[] nodeString() { // 노드이름들을 리스트에서 배열화 한다
+		String [] a = null;
+		ArrayList<String> members = new ArrayList<String>();
+		members=Stringfind();
+		int arrListSize = members.size();
+		Stringfind();
+		a=members.toArray(new String[arrListSize]);
+		return a;
+	}
+	
+	public ArrayList<String> Stringfind() {// 노드이름을 리스트로한다
+		ArrayList<String> members = new ArrayList<String>();
+		members.add(nodeName);
+		if(childNodeArray.isEmpty()) {
+			return members;
+		}else {
+			for(int i=0 ; i<getChildNodeArray().size() ; i++) {
+				TreeNode childNode = getChildNodeArray().get(i);
+				members.addAll(childNode.Stringfind());
+			}
+			return members;
+		}
+	}
+	
+	public int searchNode(String s){ // 같은 노드 이름인지 판단한다
 		if(s.equals(getNodeName())){
 			return 1;
 		}
 		return 0;
 	}
 	
-	public void setleafnode(String s){
+	public void setleafnode(String s){ // 리프 노드에 정보를 저장한다
 		if(childNodeArray.isEmpty()){
 			k=s;
 			info = k.split(",");

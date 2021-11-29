@@ -36,7 +36,8 @@ public class classroom_Panel extends JPanel{
 	JPanel centerPanel = new JPanel(new GridBagLayout());
 	GridBagConstraints gbc;
 	JLabel newLabel2[] = new JLabel[5];// 강의실 이름 담당자같은 정보 표시
-	TreeNode root = info.Tree(); // 트리 root
+	TreeNode root = info.Treeset(); // 트리 root
+	loginPanel login;
 	TreeNode building[] = new TreeNode[root.getChildNodeArray().size()];// 전체 건물
 	JButton bt[]=new JButton[root.getChildNodeArray().size()];// 전체건물 버튼
 	int l=0;
@@ -322,8 +323,9 @@ public class classroom_Panel extends JPanel{
 		for(int i = 0;i<eb5_1.length;i++,l++) { //5공 1층
 			bt1_1[i].addActionListener(new ActionListener() {
 				int c=l;
-				String[] k = eb5_1[c].getleafnode();
 				public void actionPerformed(ActionEvent e) {
+					TreeNode A = root.findnode(eb5_1[c].getNodeName());
+					String[] k = A.getleafnode();
 					for(int i = 0; i<k.length;i++){
 						newLabel2[i].setText(k[i]);
 					}
@@ -423,11 +425,31 @@ public class classroom_Panel extends JPanel{
 				centerPanel.revalidate();
 			}
 		});
+		
 		JButton btnlogin = new JButton("예약하기");
+		btnlogin.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				login = new loginPanel(1, root);
+			}
+			
+		});
+		
+		JButton btncancel = new JButton("예약취소");
+		btncancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				login = new loginPanel(0, root);
+			}
+			
+		});
 		
 		buttonPanel.add(btnBack);
 		buttonPanel.add(btnre);
 		buttonPanel.add(btnlogin);
+		buttonPanel.add(btncancel);
 		southPanel.add(buttonPanel);
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
