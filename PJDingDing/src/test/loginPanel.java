@@ -115,7 +115,9 @@ public class loginPanel extends JFrame {// 로그인 패널
 			String[] b =root1.nodeString();
 			//System.out.println(Arrays.toString(b));
 			for(int i=0;i<b.length;i++) {
-				ch1.add(b[i]);
+				if(b[i].startsWith("Y"))
+					ch1.add(b[i]);
+				
 			}
 			ch1.setBounds(100,50, 100,100);
 			
