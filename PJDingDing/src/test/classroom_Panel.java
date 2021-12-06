@@ -40,7 +40,6 @@ public class classroom_Panel extends JPanel{
 	loginPanel login;
 	TreeNode building[] = new TreeNode[root.getChildNodeArray().size()];// 瞪羹 勒僭
 	JButton bt[]=new JButton[root.getChildNodeArray().size()];// 瞪羹勒僭 幗が
-	int l=0;
 	TreeNode eb5[];// 5奢з婦
 	JButton bt1[];// 5奢з婦 幗が
 	TreeNode eb5_1[];// 5奢1類
@@ -280,7 +279,7 @@ public class classroom_Panel extends JPanel{
 			}
 		});
 		
-		bt2[0].addActionListener(new ActionListener() {//1奢3類
+		bt2[0].addActionListener(new ActionListener() {//1奢1類
 			public void actionPerformed(ActionEvent e) {
 				position+=bt2[0].getText()+"->";
 				JL.setText(position);
@@ -293,7 +292,7 @@ public class classroom_Panel extends JPanel{
 			}
 		});
 		
-		bt2[1].addActionListener(new ActionListener() {//1奢3類
+		bt2[1].addActionListener(new ActionListener() {//1奢2類
 			public void actionPerformed(ActionEvent e) {
 				position+=bt2[1].getText()+"->";
 				JL.setText(position);
@@ -320,60 +319,90 @@ public class classroom_Panel extends JPanel{
 		});
 		
 		////////////////////////////// 鬼曖褒 衛除 薑爾 盪濰
-		for(int i = 0;i<eb5_1.length;i++,l++) { //5奢 1類
+		for(int i = 0;i<eb5_1.length;i++) { //5奢 1類
+			int loc=i;
 			bt1_1[i].addActionListener(new ActionListener() {
-				int c=l;
 				public void actionPerformed(ActionEvent e) {
-					TreeNode A = root.findnode(eb5_1[c].getNodeName());
+					TreeNode A = root.findnode(eb5_1[loc].getNodeName());
 					String[] k = A.getleafnode();
+					System.out.println(A.getNodeName());
 					for(int i = 0; i<k.length;i++){
 						newLabel2[i].setText(k[i]);
 					}
 				}
 			});
 		}
-		l=0;
-		for(int i = 0;i<eb5_1.length;i++) { // 5奢 2類
+		
+		for(int i = 0;i<eb5_2.length;i++) { //5奢 2類
+			int loc=i;
 			bt1_2[i].addActionListener(new ActionListener() {
-				@Override
 				public void actionPerformed(ActionEvent e) {
-	
+					TreeNode A = root.findnode(eb5_2[loc].getNodeName());
+					String[] k = A.getleafnode();
+					System.out.println(A.getNodeName());
+					for(int i = 0; i<k.length;i++){
+						newLabel2[i].setText(k[i]);
+					}
 				}
 			});
 		}
 		
-		for(int i = 0;i<eb5_1.length;i++) { // 5奢 3類
+		for(int i = 0;i<eb5_3.length;i++) { //5奢 3類
+			int loc=i;
 			bt1_3[i].addActionListener(new ActionListener() {
-				@Override
 				public void actionPerformed(ActionEvent e) {
-	
+					TreeNode A = root.findnode(eb5_3[loc].getNodeName());
+					String[] k = A.getleafnode();
+					System.out.println(A.getNodeName());
+					for(int i = 0; i<k.length;i++){
+						newLabel2[i].setText(k[i]);
+					}
 				}
 			});
 		}
 		
-		for(int i = 0;i<eb5_1.length;i++) {// 1奢 1類
+		for(int i = 0;i<eb1_1.length;i++) {// 1奢 1類
+			int loc=i;
 			bt2_1[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-	
+					TreeNode A = root.findnode(eb1_1[loc].getNodeName());
+					String[] k = A.getleafnode();
+					System.out.println(A.getNodeName());
+					for(int i = 0; i<k.length;i++){
+						newLabel2[i].setText(k[i]);
+					}
 				}
 			});
 		}
 		
-		for(int i = 0;i<eb5_1.length;i++) {// 1奢 3類
+		
+		for(int i = 0;i<eb1_2.length;i++) {// 1奢 2類
+			int loc=i;
 			bt2_2[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-	
+					TreeNode A = root.findnode(eb1_2[loc].getNodeName());
+					String[] k = A.getleafnode();
+					System.out.println(A.getNodeName());
+					for(int i = 0; i<k.length;i++){
+						newLabel2[i].setText(k[i]);
+					}
 				}
 			});
 		}
 		
-		for(int i = 0;i<eb5_1.length;i++) {// 1奢 3類
+		for(int i = 0;i<eb1_3.length;i++) {// 1奢 3類
+			int loc=i;
 			bt2_3[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-	
+					TreeNode A = root.findnode(eb1_3[loc].getNodeName());
+					String[] k = A.getleafnode();
+					System.out.println(A.getNodeName());
+					for(int i = 0; i<k.length;i++){
+						newLabel2[i].setText(k[i]);
+					}
 				}
 			});
 		}

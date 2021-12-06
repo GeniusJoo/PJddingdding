@@ -110,33 +110,50 @@ public class information {
 		TreeNode floor53 = EB5.addChildNode("5공_3층");
 		
 		TreeNode Y5101 = floor51.addChildNode("Y5101:대형작업실"); // 5공1층
-		Y5101.setleafnode("Y5101:대형작업실,홍길동,안정장비착용"); // 각 강의실 정보 넣기
+		Y5101.setleafnode("Y5101:대형작업실,홍길동,안정장비착용, , "); // 각 강의실 정보 넣기
 		TreeNode Y5107 = floor51.addChildNode("Y5107:입문설계실2");
+		Y5107.setleafnode("YY5107:입문설계실2,홍길동,안정장비착용, , "); // 각 강의실 정보 넣기
 		TreeNode Y5110 = floor51.addChildNode("Y5110:입문설계실1");
+		Y5110.setleafnode("Y5110:입문설계실1,홍길동,안정장비착용, , "); // 각 강의실 정보 넣기
 		
 		TreeNode Y5221 = floor52.addChildNode("Y5221:시청각실"); // 5공2층
+		Y5221.setleafnode("Y5221:시청각실,홍길동,안정장비착용, , ");
 		TreeNode Y5235 = floor52.addChildNode("Y5235:시청각실");
+		Y5235.setleafnode("Y5235:시청각실,홍길동,안정장비착용, , ");
 		TreeNode Y5243 = floor52.addChildNode("Y5243:학생회실");
+		Y5243.setleafnode("Y5243:학생회실,홍길동,안정장비착용, , ");
 		
 		TreeNode Y5319 = floor53.addChildNode("Y5319:공학인증실"); // 5공3층
+		Y5319.setleafnode("Y5319:공학인증실,홍길동,안정장비착용, , ");
 		TreeNode Y5329 = floor53.addChildNode("Y5329:교통안전실");
+		Y5329.setleafnode("Y5329:교통안전실,홍길동,안정장비착용, , ");
 		TreeNode Y5337 = floor53.addChildNode("Y5337:교통기기실");
+		Y5337.setleafnode("Y5337:교통기기실,홍길동,안정장비착용, , ");
 		
 		TreeNode floor11 = EB1.addChildNode("1공_1층"); // 1공 층수
 		TreeNode floor12 = EB1.addChildNode("1공_2층");
 		TreeNode floor13 = EB1.addChildNode("1공_3층");
 		
 		TreeNode Y114 = floor11.addChildNode("Y114:학회실"); // 3공 1층
+		Y114.setleafnode("Y114:학회실,홍길동,안정장비착용, , ");
 		TreeNode Y115 = floor11.addChildNode("Y115:학부실험실");
+		Y115.setleafnode("Y115:학부실험실,홍길동,안정장비착용, , ");
 		TreeNode Y131 = floor11.addChildNode("Y131:공과대 학생회실");
+		Y131.setleafnode("Y131:공과대 학생회실,홍길동,안정장비착용, , ");
 		
 		TreeNode Y201 = floor12.addChildNode("Y201:컴퓨터실습실"); // 3공2층
+		Y201.setleafnode("Y201:컴퓨터실습실,홍길동,안정장비착용, , ");
 		TreeNode Y219 = floor12.addChildNode("Y219:공대연구소");
+		Y219.setleafnode("Y219:공대연구소,홍길동,안정장비착용, , ");
 		TreeNode Y224 = floor12.addChildNode("Y224:캡스톤디자인");
+		Y224.setleafnode("224:캡스톤디자인,홍길동,안정장비착용, , ");
 		
 		TreeNode Y314 = floor13.addChildNode("Y314:에너지환경촉매연구실"); // 3공3층
+		Y314.setleafnode("Y314:에너지환경촉매연구실,홍길동,안정장비착용, , ");
 		TreeNode Y321 = floor13.addChildNode("Y321:지능형시스템연구실");
+		Y321.setleafnode("Y321:지능형시스템연구실,홍길동,안정장비착용, , ");
 		TreeNode Y325 = floor13.addChildNode("Y325:반응공학연구실");
+		Y325.setleafnode("Y325:반응공학연구실,홍길동,안정장비착용, , ");
 		
 	}
 	

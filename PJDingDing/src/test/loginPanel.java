@@ -142,24 +142,28 @@ public class loginPanel extends JFrame {// 로그인 패널
 					
 					TreeNode A = root1.findnode(k);
 					String[] B=A.getleafnode();
-					if(B.length>4){
+					if(B[3].equals(" ")){
+						if(st[man].get(0).clorr!="") {
+							JOptionPane.showMessageDialog(null, "이미예약하셨습니다.");
+							dispose();
+						}else {
+							ArrayList<String> list = new ArrayList<>(Arrays.asList(B));
+							list.remove(3);
+							list.remove(3);
+							list.add("예약됨");
+							list.add(l);
+							int arrListSize = list.size();
+							B = list.toArray(new String[arrListSize]);
+							A.setleafnode(Arrays.toString(B));
+							info.updateTree(root1);
+							st[man].get(0).clorr=A.getNodeName();
+							info.updateStu(man, st[man]);
+							JOptionPane.showMessageDialog(null, "예약되었습니다.");
+							dispose();
+						}
+					}else{
 						JOptionPane.showMessageDialog(null, "예약된 강의실입니다.");
 						dispose();
-					}else if(st[man].get(0).clorr!="") {
-						JOptionPane.showMessageDialog(null, "이미예약하셨습니다.");
-						dispose();
-					}else {
-					ArrayList<String> list = new ArrayList<>(Arrays.asList(B));
-					list.add("예약됨");
-					list.add(l);
-					int arrListSize = list.size();
-					B = list.toArray(new String[arrListSize]);
-					A.setleafnode(Arrays.toString(B));
-					info.updateTree(root1);
-					st[man].get(0).clorr=A.getNodeName();
-					info.updateStu(man, st[man]);
-					JOptionPane.showMessageDialog(null, "예약되었습니다.");
-					dispose();
 					}
 				}	
 			});
@@ -207,6 +211,9 @@ public class loginPanel extends JFrame {// 로그인 패널
 						ArrayList<String> list = new ArrayList<String>();
 						for(int i = 0; i<3 ; i++) {
 							list.add(B[i]);
+						}
+						for(int i =0 ; i<2 ; i++) {
+							list.add(" ");
 						}
 						int arrListSize = list.size();
 						B = list.toArray(new String[arrListSize]);

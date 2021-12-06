@@ -83,10 +83,12 @@ public class TreeNode {
 			for(int i=0 ; i<getChildNodeArray().size() ; i++) {
 				TreeNode childNode = getChildNodeArray().get(i);
 				b=childNode.findnode(name);
-				if(b.nodeName.equals(name)){
+				if(b!=null){
+
 					return b;
 				}
 			}
+
 		}
 		return null;
 	}
