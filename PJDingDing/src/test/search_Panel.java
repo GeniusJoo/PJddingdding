@@ -91,6 +91,7 @@ class search_Panel extends JPanel {
 		gbc.gridx=0;
 		gbc.gridy=5;
 		gbc.gridwidth=4;
+		la1.setFont(la1.getFont().deriveFont(13.3f));
 		centerPanel.add(la1,gbc);
 		//°Ë»öÃ¢
 				
