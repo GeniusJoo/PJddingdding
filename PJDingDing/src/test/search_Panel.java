@@ -2,6 +2,7 @@ package test;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -127,6 +128,9 @@ class search_Panel extends JPanel {
 		southPanel.add(buttonPanel);
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
+		
+		btnRe.setBackground(new Color(230, 230, 255));
+		btnBack.setBackground(new Color(255, 230, 255));
 		
 	}
 	

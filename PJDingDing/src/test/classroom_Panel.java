@@ -2,6 +2,7 @@ package test;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -123,6 +124,7 @@ public class classroom_Panel extends JPanel{
 			bt[i]= new JButton(root.getChildNodeArray().get(i).getNodeName());
 			gbc.gridx=i;
 			centerPanel.add(bt[i], gbc);
+			bt[i].setBackground(new Color(240, 230, 140));
 		}
 		//5공
 		eb5=new TreeNode[building[0].getChildNodeArray().size()]; // 5공학관 트리
@@ -455,6 +457,7 @@ public class classroom_Panel extends JPanel{
 			}
 		});
 		
+		
 		JButton btnlogin = new JButton("예약하기");
 		btnlogin.addActionListener(new ActionListener() {
 
@@ -474,6 +477,12 @@ public class classroom_Panel extends JPanel{
 			}
 			
 		});
+		//color
+		btnBack.setBackground(new Color(255, 230, 255));
+		btnre.setBackground(new Color(230, 230, 255));
+		btnlogin.setBackground(new Color(230, 230, 255));
+		btncancel.setBackground(new Color(230, 230, 255));
+		buttonPanel.setBackground(new Color(230, 230, 255));
 		
 		buttonPanel.add(btnBack);
 		buttonPanel.add(btnre);

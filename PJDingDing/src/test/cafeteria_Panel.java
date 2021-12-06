@@ -3,6 +3,7 @@ package test;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -149,6 +150,10 @@ public class cafeteria_Panel extends JPanel {
 		southPanel.add(buttonPanel);
 		add(menu, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
+		//color 
+		btnBack.setBackground(new Color(255, 230, 255));
+		btnse.setBackground(new Color(230, 230, 255));
+
 	}
 	
 

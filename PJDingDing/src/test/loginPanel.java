@@ -11,6 +11,7 @@ import test.library_Panel.cancel;
 import test.library_Panel.reservation;
 
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,7 +56,7 @@ public class loginPanel extends JFrame {// 로그인 패널
 		JButton bt1 = new JButton("로그인");    
 		bt1.setBounds(100,200, 80,30);    
 		bt1.setFont(f1);
-		
+		bt1.setBackground(new Color(230, 230, 255));
 		setLocationRelativeTo(null);
 		
 		bt1.addActionListener(new ActionListener() {  
@@ -133,7 +134,7 @@ public class loginPanel extends JFrame {// 로그인 패널
 			ch2.setBounds(100,100,100,100);
 			
 			JButton bt2 = new JButton("예약");
-			
+			bt2.setBackground(new Color(230, 230, 255));
 			bt2.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) { // 예약 하기

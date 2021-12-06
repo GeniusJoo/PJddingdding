@@ -2,6 +2,7 @@ package test;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -96,6 +97,11 @@ public class mainTest extends JFrame{
 			btnlib.addActionListener(new MainPanelListener());
 			btnrest.addActionListener(new MainPanelListener());
 			btnser.addActionListener(new MainPanelListener());
+			//color 
+			btnslr.setBackground(new Color(153, 204, 255));
+			btnlib.setBackground(new Color(153, 204, 255));
+			btnrest.setBackground(new Color(153, 204, 255));
+			btnser.setBackground(new Color(153, 204, 255));
 			
 			btnPanel.add(btnslr);
 			btnPanel.add(btnlib);

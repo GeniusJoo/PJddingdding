@@ -3,6 +3,7 @@ package test;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -115,6 +116,11 @@ public class library_Panel extends JPanel{
 		btnBack.addActionListener(e -> cLayout.first(mainframe.getContentPane()));
 		btnRe.addActionListener(new librayPanelListener());
 		btnce.addActionListener(new librayPanelListener());
+		//button color 
+		btnBack.setBackground(new Color(255, 230, 255));
+		btnRe.setBackground(new Color(230, 230, 255));
+		btnce.setBackground(new Color(230, 230, 255));
+		///
 		buttonPanel.add(btnBack);
 		buttonPanel.add(btnRe);
 		buttonPanel.add(btnce);

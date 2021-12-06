@@ -1,5 +1,6 @@
 package test;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -166,6 +167,7 @@ public class information {
 	}
 	
 	public TreeNode[] reTree(TreeNode i[], int j) { // 자식트리 반환
+		
 		int k = i[j].getChildNodeArray().size();
 		TreeNode s[]= new TreeNode[k];
 		
@@ -181,6 +183,7 @@ public class information {
 		
 		for(int i =0; i<a[b].getChildNodeArray().size();i++) {
 			bk[i]= new JButton(a[b].getChildNodeArray().get(i).getNodeName());
+			bk[i].setBackground(new Color(240, 230, 140));
 		}
 		return bk;
 	}
