@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 public class information {
-	TreeNode root;
-	ArrayList<stu>[] st = new ArrayList[10];
-	public information() {
-		student_infoset();
-	}
+	static TreeNode root;
+	static ArrayList<stu>[] st = new ArrayList[10];
 	ArrayList[] library_info() { // 도서관 자리
 		
 		ArrayList<lib>[] lt = new ArrayList[25];
@@ -102,7 +99,7 @@ public class information {
 		st[num].addAll(s);
 	}
 	
-	public TreeNode Treeset() {
+	public void Treeset() { // 강의실 트리 생성
 		root = new TreeNode("명지대학교 자연캠퍼스");
 		
 		TreeNode EB5 = root.addChildNode("5공학관");// 5공학관
@@ -141,19 +138,17 @@ public class information {
 		TreeNode Y321 = floor13.addChildNode("Y321:지능형시스템연구실");
 		TreeNode Y325 = floor13.addChildNode("Y325:반응공학연구실");
 		
-		
-		return root;
 	}
 	
 	public void updateTree(TreeNode A) {// 업데이트
 		root=A;
 	}
 	
-	public TreeNode Tree() {
+	public TreeNode Tree() { // 트리반환
 		return root;
 	}
 	
-	public TreeNode[] reTree(TreeNode i[], int j) {
+	public TreeNode[] reTree(TreeNode i[], int j) { // 자식트리 반환
 		int k = i[j].getChildNodeArray().size();
 		TreeNode s[]= new TreeNode[k];
 		
@@ -163,7 +158,7 @@ public class information {
 		return s;
 	}
 	
-	public JButton[] reButton(TreeNode a[], int b) {
+	public JButton[] reButton(TreeNode a[], int b) { // 트리 수 만큼 버튼반환
 		
 		JButton bk[]=new JButton[a[b].getChildNodeArray().size()];
 		

@@ -36,7 +36,7 @@ public class classroom_Panel extends JPanel{
 	JPanel centerPanel = new JPanel(new GridBagLayout());
 	GridBagConstraints gbc;
 	JLabel newLabel2[] = new JLabel[5];// 강의실 이름 담당자같은 정보 표시
-	TreeNode root = info.Treeset(); // 트리 root
+	TreeNode root = info.Tree(); // 트리 root
 	loginPanel login;
 	TreeNode building[] = new TreeNode[root.getChildNodeArray().size()];// 전체 건물
 	JButton bt[]=new JButton[root.getChildNodeArray().size()];// 전체건물 버튼

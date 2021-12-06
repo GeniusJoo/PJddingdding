@@ -39,6 +39,9 @@ public class mainTest extends JFrame{
 		
 		//배열생성
 		//강의실 배열은 건물 수대로 건물은 3~4개, 학교->건물->층수->강의실->강의실정보 순으로 트리 제작
+		information info = new information();
+		info.Treeset();
+		info.student_infoset();
 		//학생정보는 학생이름, 번호, 비밀번호로 10명정도
 		//도서관정보는 자리, 예약자, 남은시간 으로 20자리 정도
 		
