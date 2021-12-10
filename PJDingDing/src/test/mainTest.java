@@ -30,7 +30,7 @@ import javax.swing.JPanel;
 
 public class mainTest extends JFrame{
 
-	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\map.png").getImage();
+	Image background = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\map.png").getImage();
     ImageIcon background1 = new ImageIcon(background);
 	
 	CardLayout cLayout = new CardLayout();
@@ -60,7 +60,7 @@ public class mainTest extends JFrame{
 		add("library", new library_Panel(this, cLayout));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(520, 400);
+		setSize(630, 450);
 		
 		setLocationRelativeTo(null);
 		setVisible(true);

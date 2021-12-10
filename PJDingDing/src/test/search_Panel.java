@@ -153,11 +153,23 @@ class search_Panel extends JPanel {
 				for(int i = 0; i<k.length;i++){
 					newLabel2[i].setText(k[i]);
 				}
-				if(A.getParentNode().getParentNode().getNodeName().equals("5奢з婦")) {
-					ImageIcon img1 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\find5.jpg");
-					imgLabel.setIcon(img1);
+				if(A.getParentNode().getNodeName().equals("5奢_1類")) {
+					ImageIcon img1 = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\find501.PNG");
+					imgLabel.setIcon(img1);}
+				else if(A.getParentNode().getNodeName().equals("5奢_2類")) {
+					ImageIcon img1 = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\find502.PNG");
+					imgLabel.setIcon(img1);	}
+				else if(A.getParentNode().getNodeName().equals("5奢_3類")) {
+					ImageIcon img1 = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\find503.PNG");
+					imgLabel.setIcon(img1);	}
+				else if(A.getParentNode().getNodeName().equals("1奢_1類")) {
+					ImageIcon img1 = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\find101.PNG");
+					imgLabel.setIcon(img1);	}
+				else if(A.getParentNode().getNodeName().equals("1奢_2類")) {
+					ImageIcon img1 = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\find102.PNG");
+					imgLabel.setIcon(img1);	
 				}else {
-					ImageIcon img1 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\find5.jpg");
+					ImageIcon img1 = new ImageIcon("C:\\Users\\y0n\\Documents\\GitHub\\PJddingdding\\PJDingDing\\src\\image\\find103.PNG");
 					imgLabel.setIcon(img1);
 				}
 				break;
