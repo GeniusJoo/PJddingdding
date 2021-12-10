@@ -34,7 +34,7 @@ public class cafeteria_Panel extends JPanel {
 	JScrollPane graphScroll;
 	CardLayout cLayout;
 	
-	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\rest.jpg").getImage(); // 지워도 됨
+	Image background = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1월.jpg").getImage(); // 지워도 됨
     ImageIcon background1 = new ImageIcon(background);
     Image originImg = background1.getImage(); 
     Image changedImg= originImg.getScaledInstance(500, 300, Image.SCALE_SMOOTH );
@@ -89,51 +89,51 @@ public class cafeteria_Panel extends JPanel {
 				month = ch1.getSelectedItem();
 				switch(month) {
 					case "1월":
-						ImageIcon img1 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img1 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1월.jpg");
 						picLabel.setIcon(img1);
 						break;
 					case "2월":
-						ImageIcon img2 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\2.png");
+						ImageIcon img2 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\2월.jpg");
 						picLabel.setIcon(img2);
 						break;
 					case "3월":
-						ImageIcon img3 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\3.png");
+						ImageIcon img3 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\3월.jpg");
 						picLabel.setIcon(img3);
 						break;
 					case "4월":
-						ImageIcon img4 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\4.png");
+						ImageIcon img4 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\4월.jpg");
 						picLabel.setIcon(img4);
 						break;
 					case "5월":
-						ImageIcon img5 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\3.png");
+						ImageIcon img5 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\5월.jpg");
 						picLabel.setIcon(img5);
 						break;
 					case "6월":
-						ImageIcon img6 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\4.png");
+						ImageIcon img6 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\6월.jpg");
 						picLabel.setIcon(img6);
 						break;
 					case "7월":
-						ImageIcon img7 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img7 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\7월.jpg");
 						picLabel.setIcon(img7);
 						break;
 					case "8월":
-						ImageIcon img8 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img8 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\8월.jpg");
 						picLabel.setIcon(img8);
 						break;
 					case "9월":
-						ImageIcon img9 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img9 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\9월.jpg");
 						picLabel.setIcon(img9);
 						break;
 					case "10월":
-						ImageIcon img10 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img10 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\10월.jpg");
 						picLabel.setIcon(img10);
 						break;
 					case "11월":
-						ImageIcon img11 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img11 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\11월.jpg");
 						picLabel.setIcon(img11);
 						break;
 					case "12월":
-						ImageIcon img12 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\1.png");
+						ImageIcon img12 = new ImageIcon("C:\\Users\\USER\\git\\PJddingdding\\PJDingDing\\src\\image\\12월.jpg");
 						picLabel.setIcon(img12);
 						break;
 					default:
